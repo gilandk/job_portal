@@ -29,7 +29,14 @@ if (isset($_GET['filter']) && $_GET['filter'] == 'city') {
 ?>
 
           <div class="attachment-block clearfix">
-            <img class="attachment-img" src="uploads/logo/<?php echo $row1['logo']; ?>" alt="Attachment Image">
+          <?php
+          if ($row1['logo'] > 0) {
+            $image = $row1['logo'];
+          } else {
+            $image = "2x2.jpg";
+          }
+          ?>
+          <img class="attachment-img" src="uploads/logo/<?php echo $image; ?>" alt="Attachment Image">
             <div class="attachment-pushed">
               <h4 class="attachment-heading"><a href="view-job-post.php?id=<?php echo $row['id_jobpost']; ?>"><?php echo $row['jobtitle']; ?></a> <span class="attachment-heading pull-right">PHP <?php echo number_format($row['maximumsalary'],); ?>/Month</span></h4>
               <div class="attachment-text">
@@ -64,7 +71,14 @@ if (isset($_GET['filter']) && $_GET['filter'] == 'city') {
         ?>
 
           <div class="attachment-block clearfix">
-            <img class="attachment-img" src="uploads/logo/<?php echo $row1['logo']; ?>" alt="Attachment Image">
+          <?php
+          if ($row1['logo'] > 0) {
+            $image = $row1['logo'];
+          } else {
+            $image = "2x2.jpg";
+          }
+          ?>
+          <img class="attachment-img" src="uploads/logo/<?php echo $image; ?>" alt="Attachment Image">
             <div class="attachment-pushed">
               <h4 class="attachment-heading"><a href="view-job-post.php?id=<?php echo $row['id_jobpost']; ?>"><?php echo $row['jobtitle']; ?></a> <span class="attachment-heading pull-right">PHP <?php echo number_format($row['maximumsalary'],); ?>/Month</span></h4>
               <div class="attachment-text">

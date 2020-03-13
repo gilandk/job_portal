@@ -45,6 +45,70 @@ require_once("../db.php");
     });
   </script>
 
+  <script>
+    function present() {
+      var checkBox = document.getElementById("cbox");
+      var text = document.getElementById("pyear");
+      var text1 = document.getElementById("pyears");
+      if (checkBox.checked == true) {
+        text.style.display = "none";
+        text1.style.display = "block";
+      } else {
+        text.style.display = "block";
+        text1.style.display = "none";
+      }
+    }
+  </script>
+
+<script>
+    function dleft() {
+      var checkBox = document.getElementById("cbdleft");
+      var text = document.getElementById("dleft");
+      var text1 = document.getElementById("dleft0");
+      if (checkBox.checked == true) {
+        text.style.display = "none";
+        text1.style.display = "block";
+      } else {
+        text.style.display = "block";
+        text1.style.display = "none";
+      }
+    }
+  </script>
+
+<script>
+    function dleft1() {
+      var checkBox = document.getElementById("cbdleft1");
+      var text = document.getElementById("dleft1");
+      var text1 = document.getElementById("dleft01");
+      if (checkBox.checked == true) {
+        text.style.display = "none";
+        text1.style.display = "block";
+      } else {
+        text.style.display = "block";
+        text1.style.display = "none";
+      }
+    }
+  </script>
+
+   
+<script>
+    function dleft2() {
+      var checkBox = document.getElementById("cbdleft2");
+      var text = document.getElementById("dleft2");
+      var text1 = document.getElementById("dleft02");
+      if (checkBox.checked == true) {
+        text.style.display = "none";
+        text1.style.display = "block";
+      } else {
+        text.style.display = "block";
+        text1.style.display = "none";
+      }
+    }
+  </script>
+
+
+
+
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
   <!--[if lt IE 9]>

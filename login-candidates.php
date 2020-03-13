@@ -26,6 +26,8 @@ if (isset($_SESSION['id_user']) || isset($_SESSION['id_company'])) {
   <!-- iCheck -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/iCheck/1.0.2/skins/square/blue.css">
 
+  <link rel="stylesheet" href="css/custom.css">
+
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
   <!--[if lt IE 9]>
@@ -37,10 +39,14 @@ if (isset($_SESSION['id_user']) || isset($_SESSION['id_company'])) {
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
 
-<body class="hold-transition login-page">
+<body class="hold-transition login-page gradientbg1">
+
+
   <div class="login-box">
-    <div class="login-logo">
-      <a href="index.php"><b>DYCI </b>Job Portal</a>
+
+    <div class="text-center" style="padding:20px;">
+      <img src="img/dycilogo.png" style="width:200px;height:200px;">
+      <h1><strong>DYCI Job Portal</strong></h1>
     </div>
     <!-- /.login-logo -->
     <div class="login-box-body">
@@ -75,7 +81,7 @@ if (isset($_SESSION['id_user']) || isset($_SESSION['id_company'])) {
       if (isset($_SESSION['registerCompleted'])) {
       ?>
         <div>
-          <p id="successMessage" class="text-center">Check your email!</p>
+          <p id="successMessage" class="text-center">You Have Registered Successfully! Your Account Approval Is Pending By Admin</p>
         </div>
       <?php
         unset($_SESSION['registerCompleted']);
@@ -106,7 +112,7 @@ if (isset($_SESSION['id_user']) || isset($_SESSION['id_company'])) {
         unset($_SESSION['loginLimit']);
       }
       ?>
-      
+
       <?php
       //If User Failed To log in then show error message.
       if (isset($_SESSION['userActivated'])) {

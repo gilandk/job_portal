@@ -7,16 +7,17 @@ include('include/header.php');
   <p>Below you will find job roles you have applied for</p>
 
   <?php
-  $sql = "SELECT * FROM job_post INNER JOIN apply_job_post ON job_post.id_jobpost=apply_job_post.id_jobpost WHERE apply_job_post.id_user='$_SESSION[id_user]'";
+  $sql = "SELECT * FROM job_post INNER JOIN apply_job_post ON job_post.id_jobpost=apply_job_post.id_jobpost WHERE apply_job_post.id_user='$_SESSION[id_user]' ORDER BY dateAp DESC";
   $result = $conn->query($sql);
 
   if ($result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {
+
   ?>
       <div class="attachment-block clearfix padding-2">
         <h4 class="attachment-heading"><a href="view-job-post.php?id=<?php echo $row['id_jobpost']; ?>"><?php echo $row['jobtitle']; ?></a></h4>
         <div class="attachment-text padding-2">
-          <div class="pull-left"><i class="fa fa-calendar"></i> <?php echo $row['createdat']; ?></div>
+        <div class="pull-left"><i class="fa fa-calendar"></i>&nbsp;&nbsp;<?php echo date("M-d-Y", strtotime($row['dateAp'])); ?></div>
           <?php
 
           if ($row['status'] == 0) {

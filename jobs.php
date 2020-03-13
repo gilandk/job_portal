@@ -87,7 +87,7 @@ require_once("db.php");
     </header>
 
     <!-- Content Wrapper. Contains page content -->
-    <div class="content-wrapper" style="margin-left: 0px;">
+    <div class="content-wrapper gradientbg1" style="margin-left: 0px;">
 
       <section class="content-header">
         <div class="container">

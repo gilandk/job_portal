@@ -6,7 +6,7 @@ include('include/header.php');
   <h2><i>Recent Applications</i></h2>
 
   <?php
-  $sql = "SELECT * FROM job_post INNER JOIN apply_job_post ON job_post.id_jobpost=apply_job_post.id_jobpost  INNER JOIN users ON users.id_user=apply_job_post.id_user WHERE apply_job_post.id_company='$_SESSION[id_company]'";
+  $sql = "SELECT * FROM job_post INNER JOIN apply_job_post ON job_post.id_jobpost=apply_job_post.id_jobpost INNER JOIN users ON users.id_user=apply_job_post.id_user WHERE apply_job_post.id_company='$_SESSION[id_company]' ORDER BY dateAp DESC";
   $result = $conn->query($sql);
 
   if ($result->num_rows > 0) {
@@ -15,11 +15,10 @@ include('include/header.php');
       <div class="attachment-block clearfix padding-2">
         <h4 class="attachment-heading"><a href="user-application.php?id=<?php echo $row['id_user']; ?>&id_jobpost=<?php echo $row['id_jobpost']; ?>"><?php echo $row['jobtitle'] . ' @ (' . $row['fname'] . ')'; ?></a></h4>
         <div class="attachment-text padding-2">
-          <div class="pull-left"><i class="fa fa-calendar"></i> <?php echo $row['createdat']; ?></div>
+          <div class="pull-left"><i class="fa fa-calendar"></i>&nbsp;&nbsp;<?php echo date("M-d-Y", strtotime($row['dateAp'])); ?></div>
           <?php
 
           if ($row['status'] == 0) {
-            echo '<div class="pull-right"><strong class="text-orange">Pending</strong></div>';
           } else if ($row['status'] == 1) {
             echo '<div class="pull-right"><strong class="text-red">Rejected</strong></div>';
           } else if ($row['status'] == 2) {

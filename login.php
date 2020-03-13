@@ -93,36 +93,37 @@ if (isset($_SESSION['id_user']) || isset($_SESSION['id_company'])) {
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper" style="margin-left: 0px;">
 
-      <section class="content-header">
-        <div class="container">
-          <div class="row latest-job margin-top-50 margin-bottom-20">
-            <h1 class="text-center margin-bottom-20">Sign Up</h1><br />
-            <div class="col-md-6 latest-job ">
-              <div class="small-box bg-yellow padding-5">
-                <div class="inner">
-                  <h3 class="text-center">Candidates Login</h3>
-                </div>
-                <a href="login-candidates.php" class="small-box-footer">
-                  Login <i class="fa fa-arrow-circle-right"></i>
+
+        <div class="container" style="width:100%">
+
+          <div class="text-center" style="padding-top:20px;">
+            <img src="img/dycilogo.png" style="width:200px;height:200px;">
+            <h1><strong>Dr. Yanga's Colleges, Inc.</strong></h1>
+          </div>
+          <div style="max-width:100%">
+          <div class="row latest-job margin-top-20">
+            <div class="small-box bg-purple padding-5 gradientbg1" >
+              <div class="inner">
+                <h3 class="text-center margin-bottom-20">Welcome, to our Job Portal</h3><br /><br/>
+              </div>
+              <div class="col-md-6 text-right">
+                <a class="btn btn-block btn-info" href="login-candidates.php" style="font-size:20px;">Candidate Login 
+                  <i class="fa fa-arrow-circle-right"></i>
                 </a>
               </div>
-            </div>
-            <div class="col-md-6 latest-job ">
-              <div class="small-box bg-red padding-5">
-                <div class="inner">
-                  <h3 class="text-center">Company Login</h3>
-                </div>
-                <a href="login-company.php" class="small-box-footer">
-                  Login <i class="fa fa-arrow-circle-right"></i>
+              <div class="col-md-6 text-left">
+                <a class="btn btn-block btn-info" href="login-company.php" style="font-size:20px;">Employer Login
+                  <i class="fa fa-arrow-circle-right"></i>
                 </a>
               </div>
+              <br/>
+            <br/>
+            <br/>
             </div>
           </div>
+          </div>
+
         </div>
-      </section>
-
-
-
     </div>
     <!-- /.content-wrapper -->
 

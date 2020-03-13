@@ -36,7 +36,7 @@ include('include/header.php');
         <div class="info-box-content">
           <span class="info-box-text">Application For Jobs</span>
           <?php
-          $sql = "SELECT * FROM apply_job_post WHERE id_company='$_SESSION[id_company]'";
+          $sql = "SELECT id_company='$_SESSION[id_company]' FROM apply_job_post WHERE status='0' ";
           $result = $conn->query($sql);
 
           if ($result->num_rows > 0) {

@@ -28,8 +28,7 @@ include('include/header.php');
                 <img src="../uploads/logo/<?php echo $image; ?>" class="img-thumbnail">
                 </div>
                 <br/>
-                <p><i>2x2 or 144px</i></p>
-                <?php } ?>
+                <br/>
               <input type="file" name="image" class="btn btn-default">
             </div>
             <div class="form-group">

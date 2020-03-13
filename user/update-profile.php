@@ -26,21 +26,73 @@ if (isset($_POST)) {
 	$gender = mysqli_real_escape_string($conn, $_POST['gender']);
 	$civilstatus = mysqli_real_escape_string($conn, $_POST['civilstatus']);
 	$nationality = mysqli_real_escape_string($conn, $_POST['nationality']);
+
+	//Educational Background
 	$fos = mysqli_real_escape_string($conn, $_POST['fos']);
 	$course = mysqli_real_escape_string($conn, $_POST['course']);
 	$yearAt = mysqli_real_escape_string($conn, $_POST['yearAt']);
+	$cbpassingyear = mysqli_real_escape_string($conn, $_POST['cbpassingyear']);
 	$passingyear = mysqli_real_escape_string($conn, $_POST['passingyear']);
 	$qualification = mysqli_real_escape_string($conn, $_POST['qualification']);
+
+	//employment
 	$company_name = mysqli_real_escape_string($conn, $_POST['company_name']);
-	$industry = mysqli_real_escape_string($conn, $_POST['industry']);
 	$company_add = mysqli_real_escape_string($conn, $_POST['company_add']);
 	$position = mysqli_real_escape_string($conn, $_POST['position']);
 	$emp_type = mysqli_real_escape_string($conn, $_POST['emp_type']);
 	$datejoined = mysqli_real_escape_string($conn, $_POST['datejoined']);
 	$dateleft = mysqli_real_escape_string($conn, $_POST['dateleft']);
-	$reason = mysqli_real_escape_string($conn, $_POST['reason']);
+	$cbdateleft = mysqli_real_escape_string($conn, $_POST['cbdateleft']);
+
+	$company_name1 = mysqli_real_escape_string($conn, $_POST['company_name1']);
+	$company_add1 = mysqli_real_escape_string($conn, $_POST['company_add1']);
+	$position1 = mysqli_real_escape_string($conn, $_POST['position1']);
+	$emp_type1 = mysqli_real_escape_string($conn, $_POST['emp_type1']);
+	$datejoined1 = mysqli_real_escape_string($conn, $_POST['datejoined1']);
+	$dateleft1 = mysqli_real_escape_string($conn, $_POST['dateleft1']);
+	$cbdateleft1 = mysqli_real_escape_string($conn, $_POST['cbdateleft1']);
+
+	$company_name2 = mysqli_real_escape_string($conn, $_POST['company_name2']);
+	$company_add2 = mysqli_real_escape_string($conn, $_POST['company_add2']);
+	$position2 = mysqli_real_escape_string($conn, $_POST['position2']);
+	$emp_type2 = mysqli_real_escape_string($conn, $_POST['emp_type2']);
+	$datejoined2 = mysqli_real_escape_string($conn, $_POST['datejoined2']);
+	$dateleft2 = mysqli_real_escape_string($conn, $_POST['dateleft2']);
+	$cbdateleft2 = mysqli_real_escape_string($conn, $_POST['cbdateleft2']);
+
 	$skills = mysqli_real_escape_string($conn, $_POST['skills']);
 	$aboutme = mysqli_real_escape_string($conn, $_POST['aboutme']);
+
+	if($cbpassingyear == "checked"){
+		$passingyear = "Up to Present";
+	}
+	else{
+		$passingyear = $passingyear;
+	}
+
+
+	if($cbdateleft == "checked"){
+		$dateleft = "Up to Present";
+	}
+	else{
+		$dateleft = $dateleft;
+	}
+
+	if($cbdateleft1 == "checked"){
+		$dateleft1 = "Up to Present";
+	}
+	else{
+		$dateleft1 = $dateleft1;
+	}
+
+	
+	if($cbdateleft2 == "checked"){
+		$dateleft2 = "Up to Present";
+	}
+	else{
+		$dateleft2 = $dateleft2;
+	}
+
 
 	//profile picture
 	$profileOk = true;
@@ -118,7 +170,12 @@ if (isset($_POST)) {
 	}
 
 	//Update User Details Query
-	$sql = "UPDATE users SET sno='$sno', fname='$fname', address='$address', contactno='$contactno', city='$city', state='$state', dob='$dob', age='$age', gender='$gender', civilstatus='$civilstatus', nationality='$nationality', fos='$fos', course='$course', yearAt='$yearAt',passingyear='$passingyear', qualification='$qualification', company_name='$company_name', company_add='$company_add', industry='$industry', position='$position', emp_type='$emp_type', datejoined='$datejoined', dateleft='$dateleft', reason='$reason', skills='$skills' ,aboutme='$aboutme'";
+	$sql = "UPDATE users SET sno='$sno', fname='$fname', address='$address', contactno='$contactno', city='$city', state='$state', dob='$dob', age='$age', gender='$gender', civilstatus='$civilstatus', nationality='$nationality',
+	fos='$fos', course='$course', yearAt='$yearAt', cbpassingyear='$cbpassingyear' ,passingyear='$passingyear', qualification='$qualification',
+	company_name='$company_name', company_add='$company_add', position='$position', emp_type='$emp_type', datejoined='$datejoined', dateleft='$dateleft', cbdateleft='$cbdateleft',
+	company_name1='$company_name1', company_add1='$company_add1', position1='$position1', emp_type1='$emp_type1', datejoined1='$datejoined1', dateleft1='$dateleft1', cbdateleft1='$cbdateleft1',
+	company_name2='$company_name2', company_add2='$company_add2', position2='$position2', emp_type2='$emp_type2', datejoined2='$datejoined2', dateleft2='$dateleft2', cbdateleft2='$cbdateleft2',
+	skills='$skills' ,aboutme='$aboutme'";
 
 	if ($uploadOk == true) {
 		$sql .= ", resume='$file'";

@@ -16,7 +16,6 @@ if (isset($_POST)) {
 	$city = mysqli_real_escape_string($conn, $_POST['city']);
 	$state = mysqli_real_escape_string($conn, $_POST['state']);
 	$contactno = mysqli_real_escape_string($conn, $_POST['contactno']);
-	$qualification = mysqli_real_escape_string($conn, $_POST['qualification']);
 	$course = mysqli_real_escape_string($conn, $_POST['course']);
 	$dob = mysqli_real_escape_string($conn, $_POST['dob']);
 	$age = mysqli_real_escape_string($conn, $_POST['age']);
@@ -89,7 +88,7 @@ if (isset($_POST)) {
 
 
 		//sql new registration insert query
-		$sql = "INSERT INTO users(sno, fname, email, password, address, city, state, contactno, qualification, course, dob, age, gender, fos, resume, hash) VALUES ('$sno','$fname', '$email', '$password', '$address', '$city', '$state', '$contactno', '$qualification', '$course', '$dob', '$age', '$gender', '$fos', '$file', '$hash')";
+		$sql = "INSERT INTO users(sno, fname, email, password, address, city, state, contactno, course, dob, age, gender, fos, resume, hash) VALUES ('$sno','$fname', '$email', '$password', '$address', '$city', '$state', '$contactno', '$course', '$dob', '$age', '$gender', '$fos', '$file', '$hash')";
 
 		if ($conn->query($sql) === TRUE) {
 			// Send Email

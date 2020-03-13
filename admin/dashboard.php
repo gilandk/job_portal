@@ -67,7 +67,7 @@ include('include/header.php');
         <div class="info-box-content">
           <span class="info-box-text">Pending Candidates Confirmation</span>
           <?php
-          $sql = "SELECT * FROM users WHERE active='0'";
+          $sql = "SELECT * FROM users WHERE active='2'";
           $result = $conn->query($sql);
           if ($result->num_rows > 0) {
             $totalno = $result->num_rows;

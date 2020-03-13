@@ -109,8 +109,9 @@ require_once("db.php");
                     }
                     ?>
                     <div align="center" style="width:144px;height:144px;padding:2px;">
-                      <img src="../uploads/logo/<?php echo $image; ?>" class="img-thumbnail">
+                      <img src="uploads/logo/<?php echo $image; ?>" class="img-thumbnail">
                     </div>
+                  </div>
                     <div class="pull-left" style="margin-left:10px;">
                       <h3><b><i><?php echo $row['companyname']; ?></b></i></h3>
 
@@ -120,18 +121,13 @@ require_once("db.php");
 
                     <div class="pull-right">
 
-                      <a href="jobs.php" class="btn btn-default btn-lg btn-flat margin-top-20"><i class="fa fa-arrow-circle-left"></i> Back</a><br />
-
+                      <a href="jobs.php" class="btn btn-default margin-top-20"><i class="fa fa-arrow-circle-left"></i> Back</a><br />
                       <?php
                       if (isset($_SESSION["id_user"]) && empty($_SESSION['companyLogged'])) { ?>
-                        <div>
-                          <a href="apply.php?id=<?php echo $row['id_jobpost']; ?>" class="btn btn-default btn-lg btn-flat margin-top-20"><i class="fa fa-check-circle" aria-hidden="true"></i> Apply</a>&nbsp;
-                          <a href="user/create-mail.php" class="btn btn-default btn-lg btn-flat margin-top-20"><i class="fa fa-envelope"></i> Email</a>
-                        </div>
+                          <a href="apply.php?id=<?php echo $row['id_jobpost']; ?>" class="btn btn-success margin-top-20"><i class="fa fa-check-circle" aria-hidden="true"></i> Apply</a><br/>
+                          <a href="user/create-mail.php" class="btn btn-primary margin-top-20"><i class="fa fa-envelope"></i> Email</a>
+
                       <?php } ?>
-
-
-
                     </div>
                     <div class="clearfix"></div>
                     <hr>
@@ -147,7 +143,7 @@ require_once("db.php");
                         <p style="font-size:16px;"><i class="fa fa-users" aria-hidden="true"></i> <strong>Position available: </strong> <?php echo $row['position']; ?></p>
                         <p style="font-size:16px;"><i class="fa fa-suitcase" aria-hidden="true"></i> <strong>With Experience atleast: </strong> <?php echo $row['experience']; ?> YEARS</p>
                         <p style="font-size:16px;"><i class="fa fa-usd" aria-hidden="true"></i> <strong>Salary: </strong><i class="fa fa-rub" aria-hidden="true"></i> <?php echo number_format($row['minimumsalary']); ?> - </strong><i class="fa fa-rub" aria-hidden="true"></i> <?php echo number_format($row['maximumsalary']); ?></p>
-                        <p style="font-size:16px;"><i class="fa fa-calendar-o" aria-hidden="true"></i> <strong>Apply Till: </strong><?php echo date("M-d-Y", strtotime($row['createdat'])); ?> - </strong><?php echo date("M-d-Y", strtotime($row['applyBy'])); ?></p>
+                        <p style="font-size:16px;"><i class="fa fa-calendar-o" aria-hidden="true"></i> <strong>Apply Till: </strong><?php echo date("M-d-Y", strtotime($row['createdat'])); ?> - </strong><?php echo date("M-d-Y", strtotime($row['applyBy'])); ?></p>                  
                       </div>
                       <div class="col-md-6">
                         <div>
@@ -173,6 +169,9 @@ require_once("db.php");
                     </div>
                     <br />
                     <br />
+                    <div class="text-center">
+ 
+                    </div>
                   </div>
                 </div>
                 <hr>

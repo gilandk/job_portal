@@ -142,10 +142,6 @@ require_once("db.php");
                 </div>
 
                 <div class="form-group">
-                  <input class="form-control input-lg" type="text" name="email" placeholder="Email" required>
-                </div>
-
-                <div class="form-group">
                   <input class="form-control input-lg" type="text" name="city" placeholder="City" required>
                 </div>
                 <div class="form-group">
@@ -155,12 +151,10 @@ require_once("db.php");
                   <input class="form-control input-lg" type="text" name="country" placeholder="Country" required>
                 </div>
 
-
                 <div class="form-group">
                   <label>Attach Company Logo</label>
                   <input type="file" name="image" class="form-control input-lg" required>
                 </div>
-
                 
                 <div class="form-group">
                 <label>Password</label>
@@ -177,7 +171,7 @@ require_once("db.php");
                   <label><input type="checkbox" required> I accept terms & conditions</label>
                 </div>
                 <div class="form-group">
-                  <button type="submit" class="btn btn-flat btn-success">Register</button>
+                  <button type="submit" class="btn btn-primary">Register</button>
                 </div>
               </div>
             </form>

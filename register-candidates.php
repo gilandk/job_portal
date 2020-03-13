@@ -103,21 +103,21 @@ if (isset($_SESSION['id_user']) || isset($_SESSION['id_company'])) {
                 <!-- PERSONAL INFO -->
                 <!-- Student number -->
                 <div class="form-group">
-                  <input class="form-control input-lg" type="number" id="sno" name="sno" placeholder="DYCI ID Student Number *" required>
+                  <input class="form-control input-lg" type="number" id="sno" name="sno" placeholder="Student Number *" required>
                 </div>
                 <!-- Student number -->
                 <div class="form-group">
                   <input class="form-control input-lg" type="text" id="fname" name="fname" placeholder="Full Name *" required>
                 </div>
                 <div class="form-group">
-                  <input class="form-control input-lg" type="text" id="email" name="email" placeholder="Email *" required>
+                  <input class="form-control input-lg" type="email" id="email" name="email" placeholder="Email *" required>
                 </div>
                 <div class="form-group">
                   <input class="form-control input-lg" type="text" id="contactno" name="contactno" minlength="11" maxlength="11" onkeypress="return validatePhone(event);" placeholder="Phone Number">
                 </div>
                 <div class="form-group">
                   <label>Date of Birth</label>
-                  <input class="form-control input-lg" type="date" id="dob" min="1960-01-01" name="dob" placeholder="Date Of Birth">
+                  <input class="form-control input-lg" type="date" id="dob" min="1960-01-01" name="dob" placeholder="Date Of Birth" required>
                 </div>
                 <div class="form-group">
                   <input class="form-control input-lg" type="text" id="age" name="age" placeholder="Age" readonly>
@@ -134,61 +134,13 @@ if (isset($_SESSION['id_user']) || isset($_SESSION['id_company'])) {
                 <!-- PERSONAL INFO -->
 
                 <!-- EDUCATIONAL INFO -->
-                <div class="form-group">
-                  <label>Educational Status</label>
-                  <select class="form-control input-lg" type="text" id="qualification" name="qualification" required>
-                    <option value="">---Select Qualification---</option>
-                    <option>Junior High School</option>
-                    <option>Senior High School</option>
-                    <option>Vocational Diploma/Short Course Certificate</option>
-                    <option>Undergraduate</option>
-                    <option>Bachelor's Degree</option>
-                    <option>Master's Degree</option>
-                    <option>Doctorate Degree</option>
-                    <option>Professional License(Passed Board/Bar/Professional License Exam)</option>
-                  </select>
-                </div>
 
                 <!-- ADD -->
                 <div class="form-group">
-                  <input class="form-control input-lg" type="text" id="fos" name="fos" placeholder="Field of Study">
+                  <input class="form-control input-lg" type="text" id="fos" name="fos" placeholder="School" required>
                 </div>
-
                 <div class="form-group">
-                  <select class="form-control input-lg" type="text" id="course" name="course" required>
-                    <option value="">Select Course...</option>
-                    <!-- CCS -->
-                    <option>BSIT</option>
-                    <option>BSCS</option>
-                    <option>BSCOE</option>
-                    <option>ACT</option>
-                    <!-- COA -->
-                    <option>BSA</option>
-                    <option>BSIS</option>
-                    <option>BSAT</option>
-                    <!-- CBA -->
-                    <option>BSBA - HRDM</option>
-                    <option>BSBA - FM</option>
-                    <option>BSBA - OM</option>
-                    <option>BSBA - MM</option>
-                    <!-- CHS -->
-                    <option>BSN</option>
-                    <option>BSM</option>
-                    <!-- COED -->
-                    <option>BEED</option>
-                    <option>BSED BIO</option>
-                    <option>BSED MATH</option>
-                    <option>BSED ENGLISH</option>
-                    <option>BSED FIL</option>
-                    <!-- CME -->
-                    <option>BSME</option>
-                    <!-- CAS -->
-                    <option>AB Psy</option>
-                    <option>AB Pol Scie</option>
-                    <!-- CHMT -->
-                    <option>BSHRM</option>
-                    <option>BST</option>
-                  </select>
+                  <input class="form-control input-lg" type="text" id="course" name="course" placeholder="Course" required>
                 </div>
                 <!-- ADD -->
 
@@ -213,19 +165,15 @@ if (isset($_SESSION['id_user']) || isset($_SESSION['id_company'])) {
                 <?php unset($_SESSION['uploadError']);
                 } ?>
 
-                <div class="form-group">
-                  <textarea class="form-control input-lg" rows="4" id="skills" name="skills" placeholder="Enter Skills"></textarea>
-                </div>
-
                 <!-- ADDRESS -->
                 <div class="form-group">
                   <textarea class="form-control input-lg" rows="4" id="address" name="address" placeholder="Address"></textarea>
                 </div>
                 <div class="form-group">
-                  <input class="form-control input-lg" type="text" id="city" name="city" placeholder="City">
+                  <input class="form-control input-lg" type="text" id="city" name="city" placeholder="City" required>
                 </div>
                 <div class="form-group">
-                  <input class="form-control input-lg" type="text" id="state" name="state" placeholder="State/Region/Province	">
+                  <input class="form-control input-lg" type="text" id="state" name="state" placeholder="State/Region/Province" required>
                 </div>
                 <!-- ADDRESS -->
 
@@ -251,7 +199,7 @@ if (isset($_SESSION['id_user']) || isset($_SESSION['id_company'])) {
                   <label><input type="checkbox"> I accept terms & conditions</label>
                 </div>
                 <div class="form-group">
-                  <button class="btn btn-flat btn-success">Register</button>
+                  <button class="btn btn-primary">Register</button>
                 </div>
               </div>
             </form>

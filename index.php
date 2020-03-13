@@ -58,7 +58,7 @@ require_once("db.php");
         <div class="navbar-custom-menu">
           <ul class="nav navbar-nav">
             <li>
-              <a href="jobs.php">Jobs</a>
+              <a href="jobs.php">Find Jobs</a>
             </li>
             <li>
               <a href="#Applicants">Applicants</a>
@@ -100,7 +100,7 @@ require_once("db.php");
     </header>
 
     <!-- Content Wrapper. Contains page content -->
-    <div class="content-wrapper" style="margin-left: 0px;">
+    <div class="content-wrapper gradientbg1" style="margin-left: 0px;">
 
       <section class="content-header bg-main">
         <div class="container">
@@ -118,7 +118,7 @@ require_once("db.php");
         <div class="container">
           <div class="row">
             <div class="col-md-12 latest-job margin-bottom-20">
-              <h1 class="text-center">Latest Jobs</h1>
+              <h1 class="text-center"><strong><em> Latest Jobs</em></strong></h1>
               <br />
               <?php
               /* Show any 5 random job post
@@ -136,7 +136,16 @@ require_once("db.php");
                     while ($row1 = $result1->fetch_assoc()) {
               ?>
                       <div class="attachment-block clearfix">
-                        <img class="attachment-img" src="uploads/logo/<?php echo $row1['logo']; ?>" alt="Attachment Image">
+                        <?php
+                        if ($row1['logo'] > 0) {
+                          $image = $row1['logo'];
+                        } else {
+                          $image = "2x2.jpg";
+                        }
+                        ?>
+                        <img class="attachment-img" src="uploads/logo/<?php echo $image; ?>" alt="Attachment Image">
+
+
                         <div class="attachment-pushed">
                           <h4 class="attachment-heading"><a href="view-job-post.php?id=<?php echo $row['id_jobpost']; ?>"><?php echo $row['jobtitle']; ?></a> <span class="attachment-heading pull-right">PHP <?php echo number_format($row['maximumsalary']); ?>/Month</span></h4>
                           <div class="attachment-text">
@@ -155,13 +164,12 @@ require_once("db.php");
           </div>
         </div>
       </section>
-
       <section id="Applicants" class="content-header">
         <div class="container">
           <div class="row">
             <div class="col-md-12 text-center latest-job margin-bottom-20">
-              <h1>Applicants</h1>
-              <p style="font-size:20px">Finding a job just got easier. Create a profile and apply with single mouse click.</p>
+              <h2><strong>Applicants</strong></h2>
+              <p style="font-size:18px"><em>Finding a job just got easier. Create a profile and apply with single mouse click.</em></p>
               <br />
             </div>
           </div>
@@ -170,7 +178,7 @@ require_once("db.php");
               <div class="thumbnail candidate-img">
                 <img src="img/browse.jpg" alt="Browse Jobs">
                 <div class="caption">
-                  <h3 class="text-center"><b>Browse Jobs</b></h3>
+                  <h4 class="text-center">Browse Jobs</h4>
                 </div>
               </div>
             </div>
@@ -178,7 +186,7 @@ require_once("db.php");
               <div class="thumbnail candidate-img">
                 <img src="img/interviewed.jpeg" alt="Apply & Get Interviewed">
                 <div class="caption">
-                  <h3 class="text-center"><b>Apply & Get an Interview</b></h3>
+                  <h4 class="text-center">Apply & Get an Interview</h4>
                 </div>
               </div>
             </div>
@@ -186,7 +194,7 @@ require_once("db.php");
               <div class="thumbnail candidate-img">
                 <img src="img/career.jpg" alt="Start A Career">
                 <div class="caption">
-                  <h3 class="text-center"><b>Start A Career</b></h3>
+                  <h4 class="text-center">Start A Career</h4>
                 </div>
               </div>
             </div>
@@ -198,8 +206,8 @@ require_once("db.php");
         <div class="container">
           <div class="row">
             <div class="col-md-12 text-center latest-job margin-bottom-20">
-              <h1>Companies</h1>
-              <p>Hiring? Register your company for free, browse our talented pool, post and track job applications</p>
+              <h2><strong>Companies</strong></h2>
+              <p style="font-size:18px"><em>Hiring? Register your company for free, browse our talented pool, post and track job applications.</em></p>
             </div>
           </div>
           <div class="row">
@@ -235,7 +243,7 @@ require_once("db.php");
         <div class="container">
           <div class="row">
             <div class="col-md-12 text-center latest-job margin-bottom-20">
-              <h1>Our Statistics</h1>
+              <h2><strong>Our Statistics</strong></h2>
               <br />
             </div>
           </div>
@@ -341,7 +349,7 @@ require_once("db.php");
         <div class="container">
           <div class="row">
             <div class="col-md-12 text-center latest-job margin-bottom-20">
-              <h1>About US</h1>
+              <h2><strong>About US</strong></h2>
               <br />
             </div>
           </div>
@@ -350,7 +358,7 @@ require_once("db.php");
               <img src="img/browse.jpg" class="img-responsive">
             </div>
             <div class="col-md-6 about-text margin-bottom-20">
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing <p>The online job portal application allows job seekers and recruiters to connect. The application provides the ability for job seekers to create their accounts, upload their profile and resume, search for jobs, apply for jobs, view different job openings. The application provides the ability for companies to create their accounts, search Applicants, create job postings, and view Applicants applications.
+              <p>The online job portal application allows job seekers and recruiters to connect. The application provides the ability for job seekers to create their accounts, upload their profile and resume, search for jobs, apply for jobs, view different job openings. The application provides the ability for companies to create their accounts, search Applicants, create job postings, and view Applicants applications.
                 </p>
                 <p>
                   This website is used to provide a platform for potential Applicants to get their dream job and excel in their career.

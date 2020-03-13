@@ -19,6 +19,7 @@ immediately after the control sidebar -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <!-- AdminLTE App -->
 <script src="../js/adminlte.min.js"></script>
+
 <script src="../js/myscript.js"></script>
 
 <!-- DataTables -->
