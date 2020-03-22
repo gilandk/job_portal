@@ -37,7 +37,7 @@ if ($result->num_rows >  0) {
 ?>
 
 
-<div class="col-md-9 bg-white padding-2">
+<div class="col-md-12 bg-white padding-2">
   <section class="content">
     <div class="row">
       <div class="col-md-12">

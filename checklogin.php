@@ -17,7 +17,7 @@ if (isset($_POST)) {
 
 	//Encrypt Password
 	$password = base64_encode(strrev(md5($password)));
-	if ($atmp < 4) {
+
 		//sql query to check user login
 		$sql = "SELECT id_user, fname, email, active FROM users WHERE email='$email' AND password='$password'";
 		$result = $conn->query($sql);
@@ -62,7 +62,6 @@ if (isset($_POST)) {
 		}
 		
 		else {
-			$atmp++;
 
 			//if no matching record found in user table then redirect them back to login page
 			$_SESSION['loginError'] = $conn->error;
@@ -77,4 +76,4 @@ if (isset($_POST)) {
 		header("Location: login-candidates.php");
 		exit();
 	}
-}
+

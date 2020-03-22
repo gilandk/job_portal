@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 13, 2020 at 03:59 AM
+-- Generation Time: Mar 22, 2020 at 12:11 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.1
 
@@ -61,18 +61,7 @@ CREATE TABLE `apply_job_post` (
 --
 
 INSERT INTO `apply_job_post` (`id_apply`, `id_jobpost`, `id_company`, `id_user`, `status`, `dateAp`) VALUES
-(1, 1, 1, 200000, 2, '2020-03-08 13:59:02'),
-(2, 2, 1, 200000, 0, '2020-03-08 13:59:02'),
-(3, 2, 1, 200004, 2, '2020-03-08 13:59:02'),
-(4, 5, 2, 200004, 2, '2020-03-08 13:59:02'),
-(5, 3, 1, 200000, 0, '2020-03-08 13:59:02'),
-(6, 3, 1, 200004, 0, '2020-03-08 13:59:02'),
-(7, 8, 104, 200005, 0, '2020-03-09 14:37:39'),
-(8, 7, 104, 200000, 0, '2020-03-09 15:00:24'),
-(9, 8, 104, 200000, 0, '2020-03-09 15:00:36'),
-(10, 5, 2, 200000, 0, '2020-03-10 07:45:50'),
-(11, 6, 2, 200000, 0, '2020-03-10 07:46:25'),
-(12, 4, 2, 200000, 0, '2020-03-10 07:46:41');
+(13, 1, 1, 200000, 0, '2020-03-21 14:43:49');
 
 -- --------------------------------------------------------
 
@@ -120,7 +109,6 @@ CREATE TABLE `job_post` (
   `jobtitle` varchar(255) NOT NULL,
   `jobtype` varchar(250) NOT NULL,
   `description` text NOT NULL,
-  `requirements` text NOT NULL,
   `minimumsalary` varchar(255) NOT NULL,
   `maximumsalary` varchar(255) NOT NULL,
   `experience` varchar(255) NOT NULL,
@@ -133,15 +121,15 @@ CREATE TABLE `job_post` (
 -- Dumping data for table `job_post`
 --
 
-INSERT INTO `job_post` (`id_jobpost`, `id_company`, `jobtitle`, `jobtype`, `description`, `requirements`, `minimumsalary`, `maximumsalary`, `experience`, `position`, `createdat`, `applyBy`) VALUES
-(1, 1, 'Web Developer', 'Full-Time', '<p>Web Design</p>', '<p>asdasdasasdasd</p>', '15000', '20000', '1', 2, '2020-02-22 14:52:16', '2020-03-28'),
-(2, 1, 'Graphic Artist', 'Project-Based', '<p style=\"margin: 0px 0px 1em; -webkit-font-smoothing: antialiased; box-sizing: border-box; font-family: \'Noto Sans\', \'Helvetica Neue\', Helvetica, Arial, sans-serif; color: #2d2d2d; font-size: 13.3333px;\">Job Responsibilities:</p>\r\n<p style=\"margin: 0px 0px 1em; -webkit-font-smoothing: antialiased; box-sizing: border-box; font-family: \'Noto Sans\', \'Helvetica Neue\', Helvetica, Arial, sans-serif; color: #2d2d2d; font-size: 13.3333px;\">- Designs and creates graphics that meet the specific guidelines of marketing needs</p>\r\n<p style=\"margin: 0px 0px 1em; -webkit-font-smoothing: antialiased; box-sizing: border-box; font-family: \'Noto Sans\', \'Helvetica Neue\', Helvetica, Arial, sans-serif; color: #2d2d2d; font-size: 13.3333px;\">- Coordinates with accounts to align graphic design</p>\r\n<p style=\"margin: 0px 0px 1em; -webkit-font-smoothing: antialiased; box-sizing: border-box; font-family: \'Noto Sans\', \'Helvetica Neue\', Helvetica, Arial, sans-serif; color: #2d2d2d; font-size: 13.3333px;\">- Conceptualize designs for online retail sales</p>\r\n<p style=\"margin: 0px 0px 1em; -webkit-font-smoothing: antialiased; box-sizing: border-box; font-family: \'Noto Sans\', \'Helvetica Neue\', Helvetica, Arial, sans-serif; color: #2d2d2d; font-size: 13.3333px;\">- Will be involved in all lay-outing and final artworks</p>\r\n<p style=\"margin: 0px 0px 1em; -webkit-font-smoothing: antialiased; box-sizing: border-box; font-family: \'Noto Sans\', \'Helvetica Neue\', Helvetica, Arial, sans-serif; color: #2d2d2d; font-size: 13.3333px;\">- Will use both visual art and technical computer skills to design computer graphics</p>', '<p style=\"margin: 0px 0px 1em; -webkit-font-smoothing: antialiased; box-sizing: border-box; font-family: \'Noto Sans\', \'Helvetica Neue\', Helvetica, Arial, sans-serif; color: #2d2d2d; font-size: 13.3333px;\">Job Qualifications:</p>\r\n<p style=\"margin: 0px 0px 1em; -webkit-font-smoothing: antialiased; box-sizing: border-box; font-family: \'Noto Sans\', \'Helvetica Neue\', Helvetica, Arial, sans-serif; color: #2d2d2d; font-size: 13.3333px;\">- Candidate must possess at least a Bachelor&rsquo;s/College degree, ARTS/Design/Creative Multimedia/Advertising or equivalent.</p>\r\n<p style=\"margin: 0px 0px 1em; -webkit-font-smoothing: antialiased; box-sizing: border-box; font-family: \'Noto Sans\', \'Helvetica Neue\', Helvetica, Arial, sans-serif; color: #2d2d2d; font-size: 13.3333px;\">- At least 1 year(s) of working experience in the related field</p>\r\n<p style=\"margin: 0px 0px 1em; -webkit-font-smoothing: antialiased; box-sizing: border-box; font-family: \'Noto Sans\', \'Helvetica Neue\', Helvetica, Arial, sans-serif; color: #2d2d2d; font-size: 13.3333px;\">- Proficient in Adobe Illustrator and Photoshop</p>\r\n<p style=\"margin: 0px 0px 1em; -webkit-font-smoothing: antialiased; box-sizing: border-box; font-family: \'Noto Sans\', \'Helvetica Neue\', Helvetica, Arial, sans-serif; color: #2d2d2d; font-size: 13.3333px;\">- With experience in Retail industry as Graphic Artist</p>', '18000', '23000', '2', 2, '2020-03-05 12:28:02', '2020-04-10'),
-(3, 1, 'IT STAFF', 'Full-Time', '<p><span style=\\\"color: #666666; font-family: Montserrat-Regular; background-color: #f9f9ff;\\\">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat</span></p>', '<p><span style=\\\"color: #666666; font-family: Montserrat-Regular; background-color: #f9f9ff;\\\">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis ', '18000', '20000', '2', 2, '2020-03-05 12:29:18', '2020-04-10'),
-(4, 2, 'Graphic Designer', 'Internship', '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>', '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>', '10000', '15000', '3', 1, '2020-03-06 12:55:17', '2020-03-13'),
-(5, 2, 'Sales Representative', 'Full-Time', '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>', '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>', '15000', '18000', '1', 1, '2020-03-06 13:06:18', '2020-03-13'),
-(6, 2, 'Programmer', 'Project-Based', '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>', '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>', '25000', '35000', '4', 2, '2020-03-06 13:12:23', '2020-03-27'),
-(7, 104, 'PHP Dev (Laravel)', 'Project-Based', '<p>Lorem ipsum</p>', '<p>Lorem ipsum</p>', '35000', '40000', '4', 1, '2020-03-09 13:55:22', '2020-03-28'),
-(8, 104, 'Logo Designer', 'Part-Time', '<p><strong>LOGO DESIGN</strong></p>', '<h4><em>Adobe Photoshop</em><br /><em>Adobe Illustrator</em><br /><em>Adobe Indesign</em><br /><em>Corel Draw</em><br /><br /></h4>', '20000', '22000', '2', 1, '2020-03-09 13:58:44', '2020-03-28');
+INSERT INTO `job_post` (`id_jobpost`, `id_company`, `jobtitle`, `jobtype`, `description`, `minimumsalary`, `maximumsalary`, `experience`, `position`, `createdat`, `applyBy`) VALUES
+(1, 1, 'Web Developer', 'Full-Time', '<p>Web Design</p>', '15000', '20000', '1', 2, '2020-02-22 14:52:16', '2020-03-28'),
+(2, 1, 'Graphic Artist', 'Project-Based', '<p style=\"margin: 0px 0px 1em; -webkit-font-smoothing: antialiased; box-sizing: border-box; font-family: \'Noto Sans\', \'Helvetica Neue\', Helvetica, Arial, sans-serif; color: #2d2d2d; font-size: 13.3333px;\">Job Responsibilities:</p>\r\n<p style=\"margin: 0px 0px 1em; -webkit-font-smoothing: antialiased; box-sizing: border-box; font-family: \'Noto Sans\', \'Helvetica Neue\', Helvetica, Arial, sans-serif; color: #2d2d2d; font-size: 13.3333px;\">- Designs and creates graphics that meet the specific guidelines of marketing needs</p>\r\n<p style=\"margin: 0px 0px 1em; -webkit-font-smoothing: antialiased; box-sizing: border-box; font-family: \'Noto Sans\', \'Helvetica Neue\', Helvetica, Arial, sans-serif; color: #2d2d2d; font-size: 13.3333px;\">- Coordinates with accounts to align graphic design</p>\r\n<p style=\"margin: 0px 0px 1em; -webkit-font-smoothing: antialiased; box-sizing: border-box; font-family: \'Noto Sans\', \'Helvetica Neue\', Helvetica, Arial, sans-serif; color: #2d2d2d; font-size: 13.3333px;\">- Conceptualize designs for online retail sales</p>\r\n<p style=\"margin: 0px 0px 1em; -webkit-font-smoothing: antialiased; box-sizing: border-box; font-family: \'Noto Sans\', \'Helvetica Neue\', Helvetica, Arial, sans-serif; color: #2d2d2d; font-size: 13.3333px;\">- Will be involved in all lay-outing and final artworks</p>\r\n<p style=\"margin: 0px 0px 1em; -webkit-font-smoothing: antialiased; box-sizing: border-box; font-family: \'Noto Sans\', \'Helvetica Neue\', Helvetica, Arial, sans-serif; color: #2d2d2d; font-size: 13.3333px;\">- Will use both visual art and technical computer skills to design computer graphics</p>', '18000', '23000', '2', 2, '2020-03-05 12:28:02', '2020-04-10'),
+(3, 1, 'IT STAFF', 'Full-Time', '<p><span style=\\\"color: #666666; font-family: Montserrat-Regular; background-color: #f9f9ff;\\\">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat</span></p>', '18000', '20000', '2', 2, '2020-03-05 12:29:18', '2020-04-10'),
+(4, 2, 'Graphic Designer', 'Internship', '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>', '10000', '15000', '3', 1, '2020-03-06 12:55:17', '2020-03-13'),
+(5, 2, 'Sales Representative', 'Full-Time', '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>', '15000', '18000', '1', 1, '2020-03-06 13:06:18', '2020-03-13'),
+(6, 2, 'Programmer', 'Project-Based', '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>', '25000', '35000', '4', 2, '2020-03-06 13:12:23', '2020-03-27'),
+(7, 104, 'PHP Dev (Laravel)', 'Project-Based', '<p>Lorem ipsum</p>', '35000', '40000', '4', 1, '2020-03-09 13:55:22', '2020-03-28'),
+(8, 104, 'Logo Designer', 'Part-Time', '<p><strong>LOGO DESIGN</strong></p>', '20000', '22000', '2', 1, '2020-03-09 13:58:44', '2020-03-28');
 
 -- --------------------------------------------------------
 
@@ -161,15 +149,6 @@ CREATE TABLE `mailbox` (
   `CmsgRead` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `mailbox`
---
-
-INSERT INTO `mailbox` (`id_mailbox`, `id_fromuser`, `fromuser`, `id_touser`, `subject`, `message`, `createdAt`, `AmsgRead`, `CmsgRead`) VALUES
-(1, '1', 'company', '200000', 'SCHEDULED INTERVIEW', '<p>come by to our office</p>', '2020-02-27 11:26:40', 1, 1),
-(2, '1', 'company', '200000', 'notfi test', '<p>asdasd</p>', '2020-03-01 14:46:33', 1, 1),
-(3, '2', 'company', '200004', 'SCHEDULED INTERVIEW', '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>', '2020-03-06 13:19:24', 1, 1);
-
 -- --------------------------------------------------------
 
 --
@@ -184,16 +163,6 @@ CREATE TABLE `reply_mailbox` (
   `message` text NOT NULL,
   `createdAt` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `reply_mailbox`
---
-
-INSERT INTO `reply_mailbox` (`id_reply`, `id_mailbox`, `id_user`, `usertype`, `message`, `createdAt`) VALUES
-(1, 1, 200000, 'user', '<p>okay</p>', '2020-02-27 11:26:40'),
-(2, 2, 200000, 'user', '<p>asdasdasdasda</p>', '2020-02-27 11:26:46'),
-(3, 2, 1, 'company', '<p>try</p>', '2020-02-27 11:51:52'),
-(4, 2, 200000, 'user', '', '2020-03-01 14:46:33');
 
 -- --------------------------------------------------------
 
@@ -324,7 +293,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `apply_job_post`
 --
 ALTER TABLE `apply_job_post`
-  MODIFY `id_apply` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id_apply` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `company`

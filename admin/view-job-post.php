@@ -10,7 +10,7 @@ if ($result1->num_rows > 0) {
 
 ?>
 
-<div class="col-md-9 bg-white padding-2">
+<div class="col-md-12  bg-white padding-2">
   <div class="pull-left">
     <?php
     if ($row['logo'] > 0) {
@@ -31,8 +31,7 @@ if ($result1->num_rows > 0) {
     </div>
 
     <div class="pull-right">
-      <a href="index.php" class="btn btn-default btn-lg btn-flat margin-top-20"><i class="fa fa-arrow-circle-left"></i> Back</a><br />
-      <a href="create-mail.php" class="btn btn-default btn-lg btn-flat margin-top-20"><i class="fa fa-envelope"></i> Email</a>
+      <a href="index.php" class="btn btn-primary"><i class="fa fa-arrow-circle-left"></i> Back</a><br />
     </div>
     <div class="clearfix"></div>
     <hr>
@@ -42,8 +41,7 @@ if ($result1->num_rows > 0) {
       <div class="col-md-6">
         <h4 style="font-size:16px;"><b>Job Description</b></h4>
         <?php echo stripcslashes($row['description']); ?><br />
-        <h4 style="font-size:16px;"><b>Job Requirements</b></h4>
-        <?php echo stripcslashes($row['requirements']); ?><br />
+
         <br />
         <p style="font-size:16px;"><i class="fa fa-users" aria-hidden="true"></i> <strong>Position available: </strong> <?php echo $row['position']; ?></p>
         <p style="font-size:16px;"><i class="fa fa-suitcase" aria-hidden="true"></i> <strong>With Experience atleast: </strong> <?php echo $row['experience']; ?> YEARS</p>

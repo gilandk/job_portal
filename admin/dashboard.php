@@ -2,7 +2,7 @@
 include('include/header.php');
 ?>
 
-<div class="col-md-9 bg-white padding-2">
+<div class="col-md-12 bg-white padding-2">
 
   <h3>Job Portal Statistics</h3>
   <div class="row">

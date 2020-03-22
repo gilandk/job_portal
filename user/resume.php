@@ -2,25 +2,19 @@
 
 include('include/header.php');
 
-$sql = "SELECT * FROM apply_job_post WHERE id_company='$_SESSION[id_company]' AND id_user='$_GET[id]'";
-$result = $conn->query($sql);
-if ($result->num_rows == 0) {
-  header("Location: index.php");
-  exit();
-}
 ?>
 <div class="col-md-12 bg-white padding-2">
   <div class="row margin-top-20">
     <div class="col-md-12">
       <?php
-      $sql = "SELECT * FROM users WHERE id_user='$_GET[id]'";
+      $sql = "SELECT * FROM users WHERE id_user='$_SESSION[id_user]'";
       $result = $conn->query($sql);
 
       //If Job Post exists then display details of post
       if ($result->num_rows > 0) {
         while ($row = $result->fetch_assoc()) {
       ?>
-          <div class="pull-left">
+          <div class="pull-left" style="margin-left:75px;">
             <?php
             if ($row['profile'] > 0) {
               $image = $row['profile'];
@@ -30,17 +24,17 @@ if ($result->num_rows == 0) {
             ?>
             <img src="../uploads/profile/<?php echo $image; ?>" class="img-thumbnail" style="max-height:144px;max-width:144px;">
           </div>
-          <div class="pull-left" style="margin-left:10px;">
+          <div class="pull-left" style="margin-left:20px;">
             <h2><b><i><?php echo $row['fname'] ?></i></b></h2>
             <h4><i class="fa fa-envelope-square" aria-hidden="true"></i><i> <?php echo $row['email'] ?></i></h4>
             <h4><i class="fa fa-location-arrow" aria-hidden="true"></i><i> <?php echo $row['address']; ?>, <?php echo $row['city']; ?>, <?php echo $row['state']; ?></i></h4>
             <h4><i class="fa fa-telegram" aria-hidden="true"></i> <i><?php echo $row['contactno'] ?></i></h4>
           </div>
           <div class="pull-right">
-            <a href="job-applications.php" class="btn btn-default btn-lg btn-flat margin-top-20"><i class="fa fa-arrow-circle-left"></i> Back</a><br /><br />
+            <a href="job-applications.php" class="btn btn-primary"><i class="fa fa-arrow-circle-left"></i> Back</a><br /><br />
             <?php
             if ($row['resume'] != "") {
-              echo '<a href="../uploads/resume/' . $row['resume'] . '" class="btn btn-info" download="Resume">Download Resume</a>';
+              echo '<a href="../uploads/resume/' . $row['resume'] . '" class="btn btn-success" download="Resume">Download Resume</a>';
             }
             ?>
           </div>
@@ -140,7 +134,7 @@ if ($result->num_rows == 0) {
               $skills = explode(',', $skills);
               
               foreach ($skills as $value) {
-                echo ' <span class="label label-success">' . $value . '</span>';
+                echo ' <span class="label label-success">' . $value . '</span> ';
               }
               ?></em></strong>
             </p>
@@ -166,16 +160,6 @@ if ($result->num_rows == 0) {
             </p>
             <br />
             <hr />
-
-            <div class="row justify-content-center">
-              <div class="col-md-6 text-right">
-                <a href="under-review.php?id=<?php echo $row['id_user']; ?>&id_jobpost=<?php echo $_GET['id_jobpost']; ?>" class="btn btn-success">Mark Under Review</a>
-              </div>
-              <div class="col-md-6 text-left">
-                <a href="reject.php?id=<?php echo $row['id_user']; ?>&id_jobpost=<?php echo $_GET['id_jobpost']; ?>" class="btn btn-danger">Reject Application</a>
-              </div>
-            </div>
-
 
             <!---div-->
           </div>

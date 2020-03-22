@@ -60,7 +60,7 @@ require_once("../db.php");
     }
   </script>
 
-<script>
+  <script>
     function dleft() {
       var checkBox = document.getElementById("cbdleft");
       var text = document.getElementById("dleft");
@@ -75,7 +75,7 @@ require_once("../db.php");
     }
   </script>
 
-<script>
+  <script>
     function dleft1() {
       var checkBox = document.getElementById("cbdleft1");
       var text = document.getElementById("dleft1");
@@ -90,8 +90,8 @@ require_once("../db.php");
     }
   </script>
 
-   
-<script>
+
+  <script>
     function dleft2() {
       var checkBox = document.getElementById("cbdleft2");
       var text = document.getElementById("dleft2");
@@ -128,13 +128,16 @@ require_once("../db.php");
       <!-- Logo -->
       <a href="index.php" class="logo logo-bg">
         <!-- mini logo for sidebar mini 50x50 pixels -->
-        <span class="logo-mini"><b>J</b>P</span>
+        <span class="logo-mini"><b>DYCI</b></span>
         <!-- logo for regular state and mobile devices -->
-        <span class="logo-lg"><b>Job</b> Portal</span>
+        <span class="logo-lg"><b>DYCI</b> Job Portal</span>
       </a>
 
       <!-- Header Navbar: style can be found in header.less -->
       <nav class="navbar navbar-static-top">
+        <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
+          <span class="sr-only">Toggle navigation</span>
+        </a>
         <!-- Navbar Right Menu -->
         <div class="navbar-custom-menu">
           <ul class="nav navbar-nav">
@@ -279,33 +282,63 @@ require_once("../db.php");
       </nav>
     </header>
 
-    <div class="content-wrapper" style="margin-left: 0px;">
+    <!-- Left side column. contains the logo and sidebar -->
+    <aside class="main-sidebar">
+      <!-- sidebar: style can be found in sidebar.less -->
+      <section class="sidebar">
+        <!-- Sidebar user panel -->
+
+        <!-- sidebar menu: : style can be found in sidebar.less -->
+        <ul class="sidebar-menu tree" data-widget="tree">
+
+          <li class="active"><a href="index.php"><i class="fa fa-address-card-o"></i><span> My Applications</span></a></li>
+          <li><a href="../jobs.php"><i class="fa fa-list-ul"></i><span> Jobs</span></a></li>
+          <li class="treeview">
+            <a href="#">
+              <i class="fa fa-file-pdf-o"></i>
+              <span> My Resume</span>
+              <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+              </span>
+            </a>
+            <ul class="treeview-menu">
+            <li><a href="resume.php"><i class="fa fa-file-pdf-o"> </i> View Resume</a></li>
+              <li><a href="edit-profile.php"><i class="fa fa-file-text"></i> Edit Resume</a></li>
+            </ul>
+          </li>
+
+         
+          <li class="treeview">
+            <a href="#">
+              <i class="fa fa-envelope"></i>
+              <span> Mailbox</span>
+              <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+                <?php
+                if ($notif == '0') {
+                  echo '';
+                } else {
+                  echo '<span class="label label-primary pull-right"> ' . $notif . '</span>';
+                }
+                ?>
+              </span>
+            </a>
+            <ul class="treeview-menu">
+            <li><a href="mailbox.php"><i class="fa fa-ellipsis-v"> <i class="fa fa-envelope"></i> </i>&nbsp;&nbsp;&nbsp;View Mailbox</a></li>
+              <li><a href="create-mail.php"><i class="fa fa-share"></i>Create Mail</a></li>
+            </ul>
+          </li>
+
+          <li><a href="settings.php"><i class="fa fa-gear"></i><span> Settings</span></a></li>
+          <li><a href="../logout.php"><i class="fa fa-arrow-circle-o-right"></i><span> Logout</span></a></li>
+
+        </ul>
+      </section>
+      <!-- /.sidebar -->
+    </aside>
+
+    <div class="content-wrapper">
 
       <section id="candidates" class="content-header">
         <div class="container">
           <div class="row">
-            <div class="col-md-3">
-              <div class="box box-solid">
-                <div class="box-header with-border">
-                  <h3 class="box-title">Welcome Applicant</b></h3>
-                </div>
-                <div class="box-body no-padding">
-                  <ul class="nav nav-pills nav-stacked">
-                    <li><a href="edit-profile.php"><i class="fa fa-user"></i> Edit Profile</a></li>
-                    <li class="active"><a href="index.php"><i class="fa fa-address-card-o"></i> My Applications</a></li>
-                    <li><a href="../jobs.php"><i class="fa fa-list-ul"></i> Jobs</a></li>
-                    <li><a href="mailbox.php"><i class="fa fa-envelope"></i> Mailbox &nbsp;
-                        <?php
-                        if ($notif == '0') {
-                          echo '';
-                        } else {
-                          echo '<span class="label label-pill label-danger count" style="border-radius:20px;"> ' . $notif . '</span>';
-                        }
-                        ?>
-                      </a>
-                    <li><a href="settings.php"><i class="fa fa-gear"></i> Settings</a></li>
-                    <li><a href="../logout.php"><i class="fa fa-arrow-circle-o-right"></i> Logout</a></li>
-                  </ul>
-                </div>
-              </div>
-            </div>

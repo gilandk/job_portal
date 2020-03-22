@@ -2,7 +2,7 @@
 include('include/header.php');
 ?>
 
-<div class="col-md-9 bg-white padding-2">
+<div class="col-md-12 bg-white padding-2">
   <h2><i>Update Job Post</i></h2>
   <br/>
   <div class="row">
@@ -38,10 +38,6 @@ include('include/header.php');
               <textarea class="form-control input-lg" id="description" name="description"><?php echo stripcslashes($row['description']); ?></textarea>
             </div>
             <div class="form-group">
-            <label for="jobtype">Job Requirements</label>
-              <textarea class="form-control input-lg" id="requirements" name="requirements"><?php echo stripcslashes($row['requirements']); ?></textarea>
-            </div>
-            <div class="form-group">
             <label>Min. Salary</label>
               <input type="number" class="form-control  input-lg" id="minimumsalary" autocomplete="off" name="minimumsalary" value="<?php echo $row['minimumsalary']; ?>" placeholder="Minimum Salary" required="">
             </div>
@@ -62,7 +58,7 @@ include('include/header.php');
               <input class="form-control input-lg" type="date" id="applyBy" min="<?php echo date('Y-m-d'); ?>" value="<?php echo $row['applyBy']; ?>" name="applyBy">
             </div>
             <div class="form-group">
-              <button type="submit" class="btn btn-flat btn-success">Update</button>
+              <button type="submit" class="btn btn-primary">Update</button>
             </div>
           </div>
     </form>

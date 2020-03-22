@@ -1,9 +1,6 @@
-<footer class="main-footer" style="margin-left: 0px;">
-  <div class="text-center">
+<footer class="main-footer">
     <strong>Copyright &copy; 2019-<?php echo date('Y'); ?> DYCI Job Portal</a>.</strong> All rights reserved.
-  </div>
-
-</footer>
+  </footer>
 
 <!-- /.control-sidebar -->
 <!-- Add the sidebar's background. This div must be placed

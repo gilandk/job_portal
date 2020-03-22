@@ -1,7 +1,7 @@
 <?php
 include('include/header.php');
 ?>
-<div class="col-md-9 bg-white padding-2">
+<div class="col-md-12 bg-white padding-2">
   <h2><i>My Job Posts</i></h2>
   <p>In this section you can view all job posts created by you.</p>
   <div class="row margin-top-20">
@@ -24,7 +24,7 @@ include('include/header.php');
               while ($row = $result->fetch_assoc()) {
             ?>
                 <tr>
-                  <td contenteditable><?php echo $row['jobtitle']; ?></td>
+                  <td><?php echo $row['jobtitle']; ?></td>
                   <td><a href="view-job-post.php?id=<?php echo $row['id_jobpost']; ?>"><i class="fa fa-address-card-o"></i></a></td>
                   <td class="jobpost-date"><?php echo date("d-M-Y ", strtotime($row['createdat'])); ?></td>
                   <td><a href="edit-job-post.php?id=<?php echo $row['id_jobpost']; ?>"><i class="fa fa-pencil-square-o"></i></a></td>

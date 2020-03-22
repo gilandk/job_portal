@@ -2,7 +2,7 @@
 include('include/header.php');
 ?>
 
-        <div class="col-md-9 bg-white padding-2">
+        <div class="col-md-12 bg-white padding-2">
           <h2><i>Change Password</i></h2>
           <p>Type in new password that you want to use</p>
           <div class="row">
@@ -24,7 +24,7 @@ include('include/header.php');
             </div>
             <div class="col-md-6">
               <form action="deactivate-account.php" method="post">
-                <label><input type="checkbox" required> I Want To Deactivate My Account</label>
+                <label><input type="checkbox" required> I Want To Deactivate My Account</label><br/>
                 <button type="submit" class="btn btn-danger btn-flat btn-lg">Deactivate My Account</button>
               </form>
             </div>

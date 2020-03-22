@@ -28,8 +28,7 @@ include('include/header.php');
                 <h4 style="font-size:20px;"><b>Job Description</b></h4>
                 <?php echo stripcslashes($row['description']); ?><br />
                 <br />
-                <h4 style="font-size:20px;"><b>Job Requirements</b></h4>
-                <?php echo stripcslashes($row['requirements']); ?><br />
+           
               </div>
             </div>
             <br />
@@ -38,7 +37,8 @@ include('include/header.php');
             <p style="font-size:16px;"><i class="fa fa-usd" aria-hidden="true"></i> <strong>Salary: </strong><i class="fa fa-rub" aria-hidden="true"></i> <?php echo number_format($row['minimumsalary']); ?> - </strong><i class="fa fa-rub" aria-hidden="true"></i> <?php echo number_format($row['maximumsalary']); ?></p>
             <p style="font-size:16px;"><i class="fa fa-calendar-o" aria-hidden="true"></i> <strong>Apply Till: </strong><?php echo date("M-d-Y", strtotime($row['createdat'])); ?> - </strong><?php echo date("M-d-Y", strtotime($row['applyBy'])); ?></p>
             <div>
-              <a href="edit-job-post.php?id=<?php echo $row['id_jobpost']; ?>" class="btn btn-success btn-flat margin-top-50">UPDATE</a>
+              <br/>
+              <a href="edit-job-post.php?id=<?php echo $row['id_jobpost']; ?>" class="btn btn-primary">UPDATE</a>
             </div>
         <?php
         }

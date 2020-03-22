@@ -2,7 +2,7 @@
 include('include/header.php');
 ?>
 
-<div class="col-md-9 bg-white padding-2">
+<div class="col-md-12 bg-white padding-2">
   <h2><i>Talent Database</i></h2>
   <p>In this section you can download resume of all candidates who applied to your job posts</p>
   <div class="row margin-top-20">
@@ -30,7 +30,7 @@ include('include/header.php');
             ?>
                 <tr>
                   <td><?php echo $row['fname']; ?></td>
-                  <td><?php echo $row['qualification']; ?></td>
+                  <td><?php echo $row['qualification']; ?> <?php echo $row['course']; ?></td>
                   <td>
                     <?php
                     foreach ($skills as $value) {

@@ -112,74 +112,80 @@ require_once("db.php");
                       <img src="uploads/logo/<?php echo $image; ?>" class="img-thumbnail">
                     </div>
                   </div>
-                    <div class="pull-left" style="margin-left:10px;">
-                      <h3><b><i><?php echo $row['companyname']; ?></b></i></h3>
+                  <div class="pull-left" style="margin-left:10px;">
+                    <h3><b><i><?php echo $row['companyname']; ?></b></i></h3>
 
-                      <h2><b><i><?php echo $row['jobtitle']; ?></i></b></h2>
-                      <h4><i>(<?php echo $row['jobtype']; ?>)</i></h4>
+                    <h2><b><i><?php echo $row['jobtitle']; ?></i></b></h2>
+                    <h4><i>(<?php echo $row['jobtype']; ?>)</i></h4>
+                  </div>
+
+                  <div class="pull-right">
+
+                    <a href="jobs.php" class="btn btn-default margin-top-20"><i class="fa fa-arrow-circle-left"></i> Back</a><br />
+                    <?php
+                    if (isset($_SESSION["id_user"]) && empty($_SESSION['companyLogged'])) {
+
+                      if(date("M-d-Y", strtotime($row['applyBy'])) > date("M-d-Y")) {
+                    ?>
+
+                        <a href="apply.php?id=<?php echo $row['id_jobpost']; ?>" class="btn btn-success margin-top-20"><i class="fa fa-check-circle" aria-hidden="true"></i> Apply</a><br />
+                        <a href="user/create-mail.php" class="btn btn-primary margin-top-20"><i class="fa fa-envelope"></i> Email</a>
+
+                    <?php
+                      }
+                    }
+                    ?>
+                  </div>
+                  <div class="clearfix"></div>
+                  <hr>
+
+                  <div class="row">
+
+                    <div class="col-md-6">
+                      <h4 style="font-size:16px;"><b>Job Description</b></h4>
+                      <?php echo stripcslashes($row['description']); ?><br />
+
+                      <br />
+                      <p style="font-size:16px;"><i class="fa fa-users" aria-hidden="true"></i> <strong>Position available: </strong> <?php echo $row['position']; ?></p>
+                      <p style="font-size:16px;"><i class="fa fa-suitcase" aria-hidden="true"></i> <strong>With Experience atleast: </strong> <?php echo $row['experience']; ?> YEARS</p>
+                      <p style="font-size:16px;"><i class="fa fa-usd" aria-hidden="true"></i> <strong>Salary: </strong><i class="fa fa-rub" aria-hidden="true"></i> <?php echo number_format($row['minimumsalary']); ?> - </strong><i class="fa fa-rub" aria-hidden="true"></i> <?php echo number_format($row['maximumsalary']); ?></p>
+                      <p style="font-size:16px;"><i class="fa fa-calendar-o" aria-hidden="true"></i> <strong>Apply Till: </strong><?php echo date("M-d-Y", strtotime($row['createdat'])); ?> - </strong><?php echo date("M-d-Y", strtotime($row['applyBy'])); ?></p>
                     </div>
-
-                    <div class="pull-right">
-
-                      <a href="jobs.php" class="btn btn-default margin-top-20"><i class="fa fa-arrow-circle-left"></i> Back</a><br />
-                      <?php
-                      if (isset($_SESSION["id_user"]) && empty($_SESSION['companyLogged'])) { ?>
-                          <a href="apply.php?id=<?php echo $row['id_jobpost']; ?>" class="btn btn-success margin-top-20"><i class="fa fa-check-circle" aria-hidden="true"></i> Apply</a><br/>
-                          <a href="user/create-mail.php" class="btn btn-primary margin-top-20"><i class="fa fa-envelope"></i> Email</a>
-
-                      <?php } ?>
-                    </div>
-                    <div class="clearfix"></div>
-                    <hr>
-
-                    <div class="row">
-
-                      <div class="col-md-6">
-                        <h4 style="font-size:16px;"><b>Job Description</b></h4>
-                        <?php echo stripcslashes($row['description']); ?><br />
-                        <h4 style="font-size:16px;"><b>Job Requirements</b></h4>
-                        <?php echo stripcslashes($row['requirements']); ?><br />
+                    <div class="col-md-6">
+                      <div>
+                        <h4 style="font-size:20px;"><b>COMPANY PROFILE</b></h4>
                         <br />
-                        <p style="font-size:16px;"><i class="fa fa-users" aria-hidden="true"></i> <strong>Position available: </strong> <?php echo $row['position']; ?></p>
-                        <p style="font-size:16px;"><i class="fa fa-suitcase" aria-hidden="true"></i> <strong>With Experience atleast: </strong> <?php echo $row['experience']; ?> YEARS</p>
-                        <p style="font-size:16px;"><i class="fa fa-usd" aria-hidden="true"></i> <strong>Salary: </strong><i class="fa fa-rub" aria-hidden="true"></i> <?php echo number_format($row['minimumsalary']); ?> - </strong><i class="fa fa-rub" aria-hidden="true"></i> <?php echo number_format($row['maximumsalary']); ?></p>
-                        <p style="font-size:16px;"><i class="fa fa-calendar-o" aria-hidden="true"></i> <strong>Apply Till: </strong><?php echo date("M-d-Y", strtotime($row['createdat'])); ?> - </strong><?php echo date("M-d-Y", strtotime($row['applyBy'])); ?></p>                  
+                        <p style="font-size:16px;"><span class="margin-right-10"><i class="fa fa-globe"></i>&nbsp;&nbsp;&nbsp;<?php echo $row['website']; ?></span></p>
+                        <p style="font-size:16px;"><span class="margin-right-10"><i class="fa fa-location-arrow"></i>&nbsp;&nbsp;&nbsp;<?php echo $row['city']; ?>, <?php echo $row['state']; ?>, <?php echo $row['country']; ?></span></p>
+                        <p style="font-size:16px;"><i class="fa fa-calendar"></i>&nbsp;&nbsp;&nbsp;<?php echo date("d-M-Y", strtotime($row['createdat'])); ?></p>
+                        <p style="font-size:16px;"> <i class="fa fa-telegram" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;<?php echo $row['contactno']; ?></p>
+                        <br />
+
                       </div>
-                      <div class="col-md-6">
-                        <div>
-                          <h4 style="font-size:20px;"><b>COMPANY PROFILE</b></h4>
-                          <br />
-                          <p style="font-size:16px;"><span class="margin-right-10"><i class="fa fa-globe"></i>&nbsp;&nbsp;&nbsp;<?php echo $row['website']; ?></span></p>
-                          <p style="font-size:16px;"><span class="margin-right-10"><i class="fa fa-location-arrow"></i>&nbsp;&nbsp;&nbsp;<?php echo $row['city']; ?>, <?php echo $row['state']; ?>, <?php echo $row['country']; ?></span></p>
-                          <p style="font-size:16px;"><i class="fa fa-calendar"></i>&nbsp;&nbsp;&nbsp;<?php echo date("d-M-Y", strtotime($row['createdat'])); ?></p>
-                          <p style="font-size:16px;"> <i class="fa fa-telegram" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;<?php echo $row['contactno']; ?></p>
-                          <br />
-
-                        </div>
-                        <h4 style="font-size:16px;"><b>COMPANY SUMMARY</b></h4>
-                        <?php echo stripcslashes($row['aboutme']); ?><br />
-                        <br />
-                        <h4 style="font-size:16px;"><b>MISSION</b></h4>
-                        <?php echo stripcslashes($row['mission']); ?><br />
-                        <br />
-                        <h4 style="font-size:16px;"><b>VISION</b></h4>
-                        <?php echo stripcslashes($row['vision']); ?><br />
-                        <br />
-                      </div>
-                    </div>
-                    <br />
-                    <br />
-                    <div class="text-center">
- 
+                      <h4 style="font-size:16px;"><b>COMPANY SUMMARY</b></h4>
+                      <?php echo stripcslashes($row['aboutme']); ?><br />
+                      <br />
+                      <h4 style="font-size:16px;"><b>MISSION</b></h4>
+                      <?php echo stripcslashes($row['mission']); ?><br />
+                      <br />
+                      <h4 style="font-size:16px;"><b>VISION</b></h4>
+                      <?php echo stripcslashes($row['vision']); ?><br />
+                      <br />
                     </div>
                   </div>
+                  <br />
+                  <br />
+                  <div class="text-center">
+
+                  </div>
                 </div>
-                <hr>
-
-
               </div>
+              <hr>
+
+
             </div>
     </div>
+  </div>
   </div>
   </div>
   </div>

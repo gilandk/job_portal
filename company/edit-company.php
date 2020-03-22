@@ -2,7 +2,7 @@
 include('include/header.php');
 ?>
 
-<div class="col-md-9 bg-white padding-2">
+<div class="col-md-12 bg-white padding-2">
   <h2><i>My Company</i></h2>
   <p>In this section you can change your company details</p>
   <div class="row">
@@ -16,7 +16,7 @@ include('include/header.php');
       ?>
           <div class="col-md-12 latest-job ">
             <div class="form-group">
-              <label>Change Company Logo</label>
+              <br>
               <?php
               if ($row['logo'] > 0) {
                 $image = $row['logo'];
@@ -24,13 +24,21 @@ include('include/header.php');
                 $image = "2x2.jpg";
               }
               ?>
-                <div align="center" style="width:144px;height:144px;padding:2px;">
-                <img src="../uploads/logo/<?php echo $image; ?>" class="img-thumbnail">
-                </div>
-                <br/>
-                <br/>
+              
+              <div align="center" style="width:150px;height:150px;">
+                <img src="../uploads/logo/<?php echo $image; ?>" class="img-thumbnail img-circle">
+              </div>
+              <label>Company Logo</label>
               <input type="file" name="image" class="btn btn-default">
             </div>
+            <?php if (isset($_SESSION['uploadError'])) { ?>
+              <div class="row">
+                <div class="col-md-12">
+                  <h5 style="color:red"><strong><?php echo $_SESSION['uploadError']; ?></strong></h5>
+                </div>
+              </div>
+            <?php unset($_SESSION['uploadError']);
+            } ?>
             <div class="form-group">
               <label>Company Name</label>
               <input type="text" class="form-control input-lg" name="companyname" value="<?php echo $row['companyname']; ?>" required="">
@@ -74,7 +82,7 @@ include('include/header.php');
               <input type="text" class="form-control input-lg" id="country" name="country" value="<?php echo $row['country']; ?>" placeholder="Country">
             </div>
             <div class="form-group">
-              <br/>
+              <br />
               <button type="submit" class="btn btn-primary">Update Company Profile</button>
             </div>
           </div>
@@ -84,14 +92,6 @@ include('include/header.php');
       ?>
     </form>
   </div>
-  <?php if (isset($_SESSION['uploadError'])) { ?>
-    <div class="row">
-      <div class="col-md-12 text-center">
-        <?php echo $_SESSION['uploadError']; ?>
-      </div>
-    </div>
-  <?php unset($_SESSION['uploadError']);
-  } ?>
 
 </div>
 </div>

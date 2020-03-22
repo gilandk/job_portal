@@ -16,14 +16,13 @@ if (isset($_POST)) {
 
 	// New way using prepared statements. This is safe from SQL INJECTION. Should consider to update to this method when many people are using this method.
 
-	$stmt = $conn->prepare("INSERT INTO job_post(id_company, jobtitle, jobtype, description, requirements, minimumsalary, maximumsalary, experience, position, applyBy) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+	$stmt = $conn->prepare("INSERT INTO job_post(id_company, jobtitle, jobtype, description, requirements, minimumsalary, maximumsalary, experience, position, applyBy) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
 
-	$stmt->bind_param("isssssssss", $_SESSION['id_company'], $jobtitle, $jobtype, $description, $requirements, $minimumsalary, $maximumsalary, $experience, $position, $applyBy);
+	$stmt->bind_param("issssssss", $_SESSION['id_company'], $jobtitle, $jobtype, $description, $minimumsalary, $maximumsalary, $experience, $position, $applyBy);
 
 	$jobtitle = mysqli_real_escape_string($conn, $_POST['jobtitle']);
 	$jobtype = mysqli_real_escape_string($conn, $_POST['jobtype']);
 	$description = mysqli_real_escape_string($conn, $_POST['description']);
-	$requirements = mysqli_real_escape_string($conn, $_POST['requirements']);
 	$minimumsalary = mysqli_real_escape_string($conn, $_POST['minimumsalary']);
 	$maximumsalary = mysqli_real_escape_string($conn, $_POST['maximumsalary']);
 	$experience = mysqli_real_escape_string($conn, $_POST['experience']);

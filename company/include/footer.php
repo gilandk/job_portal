@@ -1,10 +1,7 @@
-<footer class="main-footer" style="margin-left: 0px;">
-  <div class="text-center">
+
+  <footer class="main-footer">
     <strong>Copyright &copy; 2019-<?php echo date('Y'); ?> DYCI Job Portal</a>.</strong> All rights reserved.
-  </div>
-
-</footer>
-
+  </footer>
 <!-- /.control-sidebar -->
 <!-- Add the sidebar's background. This div must be placed
 immediately after the control sidebar -->
@@ -12,6 +9,7 @@ immediately after the control sidebar -->
 
 </div>
 <!-- ./wrapper -->
+
 
 <!-- jQuery 3 -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -24,7 +22,6 @@ immediately after the control sidebar -->
 
 <!-- DataTables -->
 <script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
-
 
 </body>
 

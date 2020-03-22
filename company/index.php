@@ -2,57 +2,108 @@
 include('include/header.php');
 ?>
 
-<div class="col-md-9 bg-white padding-2">
-  <h3>Overview</h3>
-  <div class="alert alert-info alert-dismissible">
-    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-    <i class="icon fa fa-info"></i> In this dashboard you are able to change your account settings, post and manage your jobs. Got a question? Do not hesitate to drop us a mail.
-  </div>
+<div class="col-md-12 bg-white padding-2">
 
   <div class="row">
-    <div class="col-md-6">
-      <div class="info-box bg-c-yellow">
-        <span class="info-box-icon bg-red"><i class="ion ion-ios-people-outline"></i></span>
-        <div class="info-box-content">
-          <span class="info-box-text">Job Posted</span>
-          <?php
-          $sql = "SELECT * FROM job_post WHERE id_company='$_SESSION[id_company]'";
-          $result = $conn->query($sql);
+    <div class="col-md-12">
 
-          if ($result->num_rows > 0) {
-            $total = $result->num_rows;
-          } else {
-            $total = 0;
-          }
+      <?php
+      $sql = "SELECT * FROM company WHERE id_company='$_SESSION[id_company]'";
+      $result = $conn->query($sql);
+      if ($result->num_rows > 0) {
+        while ($row = $result->fetch_array()) {
+      ?>
 
-          ?>
-          <span class="info-box-number"><?php echo $total; ?></span>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-6">
-      <div class="info-box bg-c-yellow">
-        <span class="info-box-icon bg-green"><i class="ion ion-ios-browsers"></i></span>
-        <div class="info-box-content">
-          <span class="info-box-text">Application For Jobs</span>
-          <?php
-          $sql = "SELECT id_company='$_SESSION[id_company]' FROM apply_job_post WHERE status='0' ";
-          $result = $conn->query($sql);
+          <div class="box box-widget widget-user">
+            <!-- Add the bg color to the header using any of the bg-* classes -->
+            <div class="widget-user-header bg-aqua-active" style="height:150px;">
+              <div class="pull-left">
+                <h1 class="widget-user-username"><strong><?php echo $row['companyname']; ?></strong></h1>
+                <h4 class="widget-user-desc"><?php echo $row['name']; ?></h4>
+              </div>
+              <div class="pull-right text-right">
+                <h5 class="widget-user-desc"><?php echo $row['website']; ?>&nbsp;&nbsp;&nbsp;<i class="fa fa-globe"></i></h5>
+                <h5 class="widget-user-desc"><?php echo $row['city']; ?>, <?php echo $row['state']; ?>, <?php echo $row['country']; ?>&nbsp;&nbsp;&nbsp;<i class="fa fa-location-arrow"></i></h5>
+                <h5 class="widget-user-desc"><?php echo $row['contactno']; ?>&nbsp;&nbsp;&nbsp;<i class="fa fa-telegram" aria-hidden="true"></i></h5>
+              </div>
+            </div>
 
-          if ($result->num_rows > 0) {
-            $total = $result->num_rows;
-          } else {
-            $total = 0;
-          }
-          ?>
-          <span class="info-box-number"><?php echo $total; ?></span>
-        </div>
-      </div>
+            <div class="widget-user-image" style="margin-top:10px;margin-left:-80px;">
+              <img class="img-circle" src="../uploads/logo/<?php echo $row['logo']; ?>" style="height:150px;width:150px;" alt="User Avatar">
+            </div>
+            <div class="box-footer">
+              <br />
+              <br />
+              <div class="row">
+                <div class="col-sm-4 border-right">
+                  <div class="description-block">
+                    <?php
+                    $sql1 = "SELECT * FROM job_post WHERE id_company='$_SESSION[id_company]'";
+                    $result1 = $conn->query($sql1);
+                    $total1 = $result1->num_rows;
+
+                    ?>
+                    <h5 class="description-header"><?php echo $total1; ?></h5>
+                    <span class="description-text">Job Posted</span>
+                  </div>
+                  <!-- /.description-block -->
+                </div>
+                <!-- /.col -->
+                <div class="col-sm-4 border-right">
+                  <div class="description-block">
+                  <?php
+                    $sql2 = "SELECT id_company='$_SESSION[id_company]' FROM apply_job_post WHERE status='0' ";
+                    $result2 = $conn->query($sql2);
+                    $total2 = $result2->num_rows;
+                    ?>
+                    <h5 class="description-header"><?php echo $total2; ?></h5>
+                    <span class="description-text">Job Applications</span>
+                  </div>
+                  <!-- /.description-block -->
+                </div>
+                <!-- /.col -->
+                <div class="col-sm-4">
+                  <div class="description-block">
+                    <?php
+                    $sql3 = "SELECT * FROM apply_job_post WHERE id_company='$_SESSION[id_company]' ";
+                    $result3 = $conn->query($sql3);
+                    $total3 = $result3->num_rows;
+                    ?>
+                    <h5 class="description-header"><?php echo $total3; ?></h5>
+                    <span class="description-text">Pending Applications</span>
+                  </div>
+                  <!-- /.description-block -->
+                </div>
+                <!-- /.col -->
+
+
+              </div>
+
+              <div class="col-sm-12">
+                <div class="description-block" style="padding-left:150px;padding-right:150px;">
+                  <br />
+                  <br />
+                  <h4 style="font-size:16px;"><b>COMPANY SUMMARY</b></h4>
+                  <?php echo stripcslashes($row['aboutme']); ?><br />
+                  <br />
+                  <h4 style="font-size:16px;"><b>MISSION</b></h4>
+                  <?php echo stripcslashes($row['mission']); ?><br />
+                  <br />
+                  <h4 style="font-size:16px;"><b>VISION</b></h4>
+                  <?php echo stripcslashes($row['vision']); ?><br />
+                </div>
+                <!-- /.row -->
+              </div>
+            </div>
+            <!-- /.widget-user -->
+        <?php
+        }
+      }
+        ?>
+          </div>
+
     </div>
   </div>
-
-</div>
-</div>
 </div>
 </section>
 

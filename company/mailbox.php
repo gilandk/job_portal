@@ -4,7 +4,7 @@ include('include/header.php');
 
 ?>
 
-<div class="col-md-9 bg-white padding-2">
+<div class="col-md-12 bg-white padding-2">
   <section class="content">
     <div class="row">
       <div class="col-md-12">
@@ -12,7 +12,7 @@ include('include/header.php');
           <div class="box-header with-border">
             <h3 class="box-title" style="margin-bottom: 20px;">Mailbox</h3>
             <div class="pull-right">
-              <a href="create-mail.php" class="btn btn-warning btn-flat"><i class="fa fa-envelope"></i> Create</a>
+            <a href="create-mail.php" class="btn btn-primary btn-block margin-bottom">Compose</a>
             </div>
             <!-- /.box-tools -->
           </div>

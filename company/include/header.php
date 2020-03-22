@@ -39,16 +39,8 @@ require_once("../db.php");
   <script>
     tinymce.init({
       selector: '#description',
-      height: 150
-      
-    });
-  </script>
-  
-  <script>
-    tinymce.init({
-      selector: '#requirements',
-      height: 150
-      
+      height: 300
+
     });
   </script>
 
@@ -76,12 +68,15 @@ require_once("../db.php");
 
       <!-- Header Navbar: style can be found in header.less -->
       <nav class="navbar navbar-static-top">
+        <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
+          <span class="sr-only">Toggle navigation</span>
+        </a>
         <!-- Navbar Right Menu -->
         <div class="navbar-custom-menu">
           <ul class="nav navbar-nav">
 
-          <li class="dropdown messages-menu">
-                          <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-envelope-o"></i>
+            <li class="dropdown messages-menu">
+              <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-envelope-o"></i>
                 <?php //notif count
                 $sql = "SELECT * FROM `mailbox` WHERE (id_fromuser='$_SESSION[id_company]' OR id_touser='$_SESSION[id_company]') AND CmsgRead='0'";
                 $result = $conn->query($sql);
@@ -144,10 +139,9 @@ require_once("../db.php");
                               $logo = $rowsUser['profile'];
                             }
 
-                            if ($rowsUser['profile'] > 0){
+                            if ($rowsUser['profile'] > 0) {
                               $image = $rowsUser['profile'];
-                            }
-                            else{
+                            } else {
                               $image = "2x2.jpg";
                             }
 
@@ -175,29 +169,29 @@ require_once("../db.php");
             </li>
 
             <li class="dropdown user user-menu">
-                   <?php
-                    $sql = "SELECT * FROM company WHERE id_company='$_SESSION[id_company]'";
-                    $result = $conn->query($sql);
-                    while ($row = $result->fetch_assoc()) {
+              <?php
+              $sql = "SELECT * FROM company WHERE id_company='$_SESSION[id_company]'";
+              $result = $conn->query($sql);
+              while ($row = $result->fetch_assoc()) {
 
-                      if ($row['logo'] > 0) {
-                        $image = $row['logo'];
-                      } else {
-                        $image = "2x2.jpg";
-                      }
-                    ?>
+                if ($row['logo'] > 0) {
+                  $image = $row['logo'];
+                } else {
+                  $image = "2x2.jpg";
+                }
+              ?>
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                  <img src="../uploads/logo/<?php echo $image;?>" class="user-image" alt="User Image">
-                  <span class="hidden-xs"><?php echo $row['name'];?></span>
+                  <img src="../uploads/logo/<?php echo $image; ?>" class="user-image" alt="User Image">
+                  <span class="hidden-xs"><?php echo $row['name']; ?></span>
                 </a>
-            <ul class="dropdown-menu">
+                <ul class="dropdown-menu">
                   <!-- User image -->
                   <li class="user-header">
-                    <img src="../uploads/logo/<?php echo $image;?>" class="img-circle" alt="User Image">
+                    <img src="../uploads/logo/<?php echo $image; ?>" class="img-circle" alt="User Image">
                     <p>
-                     <?php echo $row['name'];?>
+                      <?php echo $row['name']; ?>
                       <small>Member since <?php echo date("M.Y", strtotime($row['createdAt'])); ?></small>
-                      <small><strong><?php echo $row['companyname'];?></strong></small>
+                      <small><strong><?php echo $row['companyname']; ?></strong></small>
                     </p>
                   </li>
                   <!-- Menu Footer-->
@@ -210,9 +204,9 @@ require_once("../db.php");
                     </div>
                   </li>
                 </ul>
-                <?php
-                    }
-                ?>
+              <?php
+              }
+              ?>
             </li>
 
           </ul>
@@ -220,37 +214,65 @@ require_once("../db.php");
       </nav>
     </header>
 
+    <!-- Left side column. contains the logo and sidebar -->
+    <aside class="main-sidebar">
+      <!-- sidebar: style can be found in sidebar.less -->
+      <section class="sidebar">
+        <!-- Sidebar user panel -->
+
+        <!-- sidebar menu: : style can be found in sidebar.less -->
+        <ul class="sidebar-menu tree" data-widget="tree">
+
+          <li class="active"><a href="index.php"><i class="fa fa-address-card-o"></i><span> Dashboard</span></a></li>
+          <li><a href="edit-company.php"><i class="fa fa-user"></i><span> Edit Company Profile</span></a></li>
+
+          <li class="treeview">
+            <a href="#">
+              <i class="fa fa-file-o"></i>
+              <span>My Job Posts</span>
+              <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+              </span>
+            </a>
+            <ul class="treeview-menu">
+              <li><a href="job-applications.php"><i class="fa fa-list-ul"></i> Job Applications</a></li>
+              <li><a href="my-job-post.php"><i class="fa fa-files-o"></i> Manage Job Post</a></li>
+              <li><a href="create-job-post.php"><i class="fa fa-file-o"></i> Create Job Post</a></li>
+            </ul>
+          </li>
+
+          <li class="treeview">
+            <a href="#">
+              <i class="fa fa-envelope"></i>
+              <span>Mailbox</span>
+              <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+                <?php
+                if ($notif == '0') {
+                  echo '';
+                } else {
+                  echo '<span class="label label-primary pull-right"> ' . $notif . '</span>';
+                }
+                ?>
+              </span>
+            </a>
+            <ul class="treeview-menu">
+              <li><a href="mailbox.php"><i class="fa fa-ellipsis-v"> <i class="fa fa-envelope"></i> </i>&nbsp;&nbsp;&nbsp;View Mailbox</a></li>
+              <li><a href="create-mail.php"><i class="fa fa-share"></i>Create Mail</a></li>
+            </ul>
+          </li>
+          <li><a href="resume-database.php"><i class="fa fa-users"></i> <span>Resume Database</span></a></li>
+          <li><a href="settings.php"><i class="fa fa-gear"></i><span>Settings</span></a></li>
+          <li><a href="../logout.php"><i class="fa fa-arrow-circle-o-right"></i><span>Logout</span></a></li>
+
+        </ul>
+      </section>
+      <!-- /.sidebar -->
+    </aside>
+
     <!-- Content Wrapper. Contains page content -->
-    <div class="content-wrapper" style="margin-left: 0px;">
+    <div class="content-wrapper">
 
       <section id="candidates" class="content-header">
         <div class="container">
           <div class="row">
-            <div class="col-md-3">
-              <div class="box box-solid">
-                <div class="box-header with-border">
-                  <h3 class="box-title">Welcome <b><?php echo $_SESSION['name']; ?></b></h3>
-                </div>
-                <div class="box-body no-padding">
-                  <ul class="nav nav-pills nav-stacked">
-                    <li><a href="index.php"><i class="fa fa-dashboard"></i> Dashboard</a></li>
-                    <li><a href="edit-company.php"><i class="fa fa-tv"></i> My Company</a></li>
-                    <li><a href="create-job-post.php"><i class="fa fa-file-o"></i> Create Job Post</a></li>
-                    <li><a href="my-job-post.php"><i class="fa fa-file-o"></i> My Job Post</a></li>
-                    <li><a href="job-applications.php"><i class="fa fa-file-o"></i> Job Application</a></li>
-                    <li><a href="mailbox.php"><i class="fa fa-envelope"></i> Mailbox &nbsp;
-                        <?php
-                        if ($notif == '0') {
-                          echo '';
-                        } else {
-                          echo '<span class="label label-pill label-danger count" style="border-radius:20px;"> ' . $notif . '</span>';
-                        }
-                        ?>
-                      </a>
-                    <li><a href="settings.php"><i class="fa fa-gear"></i> Settings</a></li>
-                    <li><a href="resume-database.php"><i class="fa fa-user"></i> Resume Database</a></li>
-                    <li><a href="../logout.php"><i class="fa fa-arrow-circle-o-right"></i> Logout</a></li>
-                  </ul>
-                </div>
-              </div>
-            </div>

@@ -1,7 +1,7 @@
 <?php
 include('include/header.php');
 ?>
-<div class="col-md-9 bg-white padding-2">
+<div class="col-md-12 bg-white padding-2">
 
   <h3>Candidates Database</h3>
   <div class="row margin-top-20">
@@ -10,7 +10,7 @@ include('include/header.php');
         <table id="applications" class="table table-hover">
           <thead>
             <th>Candidate</th>
-            <th>Highest Qualification</th>
+            <th>Course</th>
             <th>Skills</th>
             <th>City</th>
             <th>State</th>
@@ -19,6 +19,7 @@ include('include/header.php');
             <th>Delete</th>
           </thead>
           <tbody>
+
             <?php
             $sql = "SELECT * FROM users";
             $result = $conn->query($sql);
@@ -29,9 +30,10 @@ include('include/header.php');
                 $skills = $row['skills'];
                 $skills = explode(',', $skills);
             ?>
+            
                 <tr>
                   <td><?php echo $row['fname'] ?></td>
-                  <td><?php echo $row['qualification']; ?></td>
+                  <td><?php echo $row['qualification']; ?> <?php echo $row['course']; ?></td>
                   <td>
                     <?php
                     foreach ($skills as $value) {
@@ -91,4 +93,3 @@ include('include/header.php');
 include('include/footer.php');
 
 ?>
-

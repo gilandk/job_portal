@@ -19,7 +19,6 @@ if (isset($_POST)) {
 	$jobtitle = mysqli_real_escape_string($conn, $_POST['jobtitle']);
 	$jobtype = mysqli_real_escape_string($conn, $_POST['jobtype']);
 	$description = mysqli_real_escape_string($conn, $_POST['description']);
-	$requirements = mysqli_real_escape_string($conn, $_POST['requirements']);
 	$minimumsalary = mysqli_real_escape_string($conn, $_POST['minimumsalary']);
 	$maximumsalary = mysqli_real_escape_string($conn, $_POST['maximumsalary']);
 	$experience = mysqli_real_escape_string($conn, $_POST['experience']);
@@ -29,7 +28,7 @@ if (isset($_POST)) {
 	//THIS IS NOT SAFE FROM SQL INJECTION BUT OK TO USE WITH SMALL TO MEDIUM SIZE AUDIENCE
 
 	//Update User Details Query
-	$sql = "UPDATE job_post SET id_company='$id_company', jobtitle='$jobtitle', jobtype='$jobtype', description='$description', requirements='$requirements', minimumsalary='$minimumsalary', maximumsalary='$maximumsalary', experience='$experience', position='$position', applyBy='$applyBy'";
+	$sql = "UPDATE job_post SET id_company='$id_company', jobtitle='$jobtitle', jobtype='$jobtype', description='$description', minimumsalary='$minimumsalary', maximumsalary='$maximumsalary', experience='$experience', position='$position', applyBy='$applyBy'";
 
 	$sql .= " WHERE id_jobpost='$id_jobpost'";
 

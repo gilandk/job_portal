@@ -57,6 +57,9 @@ require_once("../db.php");
 
       <!-- Header Navbar: style can be found in header.less -->
       <nav class="navbar navbar-static-top">
+      <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
+          <span class="sr-only">Toggle navigation</span>
+        </a>
         <!-- Navbar Right Menu -->
         <div class="navbar-custom-menu">
           <ul class="nav navbar-nav">
@@ -66,25 +69,30 @@ require_once("../db.php");
       </nav>
     </header>
 
+    <!-- Left side column. contains the logo and sidebar -->
+    <aside class="main-sidebar">
+      <!-- sidebar: style can be found in sidebar.less -->
+      <section class="sidebar">
+        <!-- Sidebar user panel -->
+
+        <!-- sidebar menu: : style can be found in sidebar.less -->
+        <ul class="sidebar-menu tree" data-widget="tree">
+
+          <li class="active"><a href="dashboard.php"><i class="fa fa-dashboard"></i><span> Dashboard</span></a></li>
+          <li class="active"><a href="active-jobs.php"><i class="fa fa-briefcase"></i> <span>Active Jobs</span></a></li>
+          <li><a href="applications.php"><i class="fa fa-address-card-o"></i> <span>Applications</span></a></li>
+          <li><a href="companies.php"><i class="fa fa-building"></i> <span>Companies</span></a></li>
+
+          <li><a href="../logout.php"><i class="fa fa-arrow-circle-o-right"></i><span> Logout</span></a></li>
+
+        </ul>
+      </section>
+      <!-- /.sidebar -->
+    </aside>
+
     <!-- Content Wrapper. Contains page content -->
-    <div class="content-wrapper" style="margin-left: 0px;">
+    <div class="content-wrapper">
 
       <section id="candidates" class="content-header">
         <div class="container">
           <div class="row">
-            <div class="col-md-3">
-              <div class="box box-solid">
-                <div class="box-header with-border">
-                  <h3 class="box-title">Welcome <b>Admin</b></h3>
-                </div>
-                <div class="box-body no-padding">
-                  <ul class="nav nav-pills nav-stacked">
-                    <li><a href="dashboard.php"><i class="fa fa-dashboard"></i> Dashboard</a></li>
-                    <li class="active"><a href="active-jobs.php"><i class="fa fa-briefcase"></i> Active Jobs</a></li>
-                    <li><a href="applications.php"><i class="fa fa-address-card-o"></i> Applications</a></li>
-                    <li><a href="companies.php"><i class="fa fa-building"></i> Companies</a></li>
-                    <li><a href="../logout.php"><i class="fa fa-arrow-circle-o-right"></i> Logout</a></li>
-                  </ul>
-                </div>
-              </div>
-            </div>

@@ -1,7 +1,7 @@
 <?php
 include('include/header.php');
 ?>
-<div class="col-md-9 bg-white padding-2">
+<div class="col-md-12 bg-white padding-2">
   <h2><i>Create Job Post</i></h2>
   <br />
   <div class="row">
@@ -25,10 +25,6 @@ include('include/header.php');
         <div class="form-group">
           <label for="jobtype">Job Description</label>
           <textarea class="form-control input-lg" id="description" name="description" placeholder="Job Description"></textarea>
-        </div>
-        <div class="form-group">
-          <label for="requirements">Job Requirements</label>
-          <textarea class="form-control input-lg" id="requirements" name="requirements" placeholder="Job Requirements"></textarea>
         </div>
         <div class="form-group">
           <label>Min. Salary</label>
