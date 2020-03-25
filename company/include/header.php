@@ -61,7 +61,7 @@ require_once("../db.php");
       <!-- Logo -->
       <a href="index.php" class="logo logo-bg">
         <!-- mini logo for sidebar mini 50x50 pixels -->
-        <span class="logo-mini"><b>J</b>P</span>
+        <span class="logo-mini"><b>DYCI</b></span>
         <!-- logo for regular state and mobile devices -->
         <span class="logo-lg"><b>DYCI </b>Job Portal</span>
       </a>
@@ -231,7 +231,19 @@ require_once("../db.php");
               <i class="fa fa-file-o"></i>
               <span>My Job Posts</span>
               <span class="pull-right-container">
-                <i class="fa fa-angle-left pull-right"></i>
+              <i class="fa fa-angle-left pull-right"></i>
+                <?php
+                $sql3 = "SELECT * FROM apply_job_post WHERE id_company='$_SESSION[id_company]' AND status='0'";
+                $result3 = $conn->query($sql3);
+                $total3 = $result3->num_rows;
+          
+                if ($total3 == '0') {
+                  echo '';
+                } else {
+                  echo '<span class="label label-danger pull-right"> ' . $total3 . '</span>';
+                }
+                ?>
+                
               </span>
             </a>
             <ul class="treeview-menu">
@@ -251,13 +263,13 @@ require_once("../db.php");
                 if ($notif == '0') {
                   echo '';
                 } else {
-                  echo '<span class="label label-primary pull-right"> ' . $notif . '</span>';
+                  echo '<span class="label label-danger pull-right"> ' . $notif . '</span>';
                 }
                 ?>
               </span>
             </a>
             <ul class="treeview-menu">
-              <li><a href="mailbox.php"><i class="fa fa-ellipsis-v"> <i class="fa fa-envelope"></i> </i>&nbsp;&nbsp;&nbsp;View Mailbox</a></li>
+              <li><a href="mailbox.php"><i class="fa fa-inbox" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;View Mailbox</a></li>
               <li><a href="create-mail.php"><i class="fa fa-share"></i>Create Mail</a></li>
             </ul>
           </li>

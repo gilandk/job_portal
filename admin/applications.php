@@ -9,6 +9,7 @@ include('include/header.php');
       <div class="box-body table-responsive no-padding">
         <table id="applications" class="table table-hover">
           <thead>
+            <th>Student #</th>
             <th>Candidate</th>
             <th>Course</th>
             <th>Skills</th>
@@ -30,8 +31,9 @@ include('include/header.php');
                 $skills = $row['skills'];
                 $skills = explode(',', $skills);
             ?>
-            
+
                 <tr>
+                  <td><?php echo $row['sno'] ?></td>
                   <td><?php echo $row['fname'] ?></td>
                   <td><?php echo $row['qualification']; ?> <?php echo $row['course']; ?></td>
                   <td>

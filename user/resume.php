@@ -37,9 +37,10 @@ include('include/header.php');
               echo '<a href="../uploads/resume/' . $row['resume'] . '" class="btn btn-success" download="Resume">Download Resume</a>';
             }
             ?>
+            <a href="print-resume.php" target="_blank" class="btn btn-success"><i class="fa fa-arrow-circle-left"></i> Print</a><br /><br />
           </div>
           <div class="clearfix"></div>
-        
+
           <div>
             <!--div-->
             <hr>
@@ -49,20 +50,19 @@ include('include/header.php');
             </div>
             <hr />
             <p style="font-size:16px;margin-left:75px;">
-            <br/>
-            <strong style="font-size:18px;"><?php echo $row['qualification'] .' ' . $row['course']; ?></strong><br/>
-            <strong> <?php echo $row['fos']; ?></strong><br/>
+              <br />
+              <strong style="font-size:18px;"><?php echo $row['qualification'] . ' ' . $row['course']; ?></strong><br />
+              <strong> <?php echo $row['fos']; ?></strong><br />
 
               <?php $yearAt = strtotime($row['yearAt']); ?>
-              
+
               <?php
               $passingyear = strtotime($row['passingyear']);
               $cdate = date("M-Y");
 
-              if($passingyear != $cdate ){
+              if ($passingyear != $cdate) {
                 $ygrad = $row['passingyear'];
-              }
-              else{
+              } else {
                 $ygrad = date("M-Y", $yeargrad);
               }
               ?>
@@ -72,33 +72,33 @@ include('include/header.php');
             <br />
             <hr />
             <div class="text-center">
-              <i class="fa fa-ravelry fa-2x" aria-hidden="true"></i>
+              <i class="fa fa-suitcase fa-2x" aria-hidden="true"></i>
               <h4 style="font-size:20px;"><b>Employment History</b></h4>
             </div>
             <hr />
             <p style="font-size:16px;margin-left:75px;">
-            <br/>
+              <br />
               <strong style="font-size:20px;"><?php echo $row['position']; ?></strong> <br />
               <strong><?php echo $row['company_name']; ?></strong> - <?php echo $row['company_add']; ?><br />
               <em>(<?php echo $row['emp_type']; ?>)</em> <br />
 
               <?php $djoin = strtotime($row['datejoined']); ?>
               <?php
-              
+
               $dleft = strtotime($row['dateleft']);
               $curdate = date("M-Y");
 
-              if($dleft != $curdate) {
+              if ($dleft != $curdate) {
                 $stats = "Up to Present";
               }
-              
+
               ?>
               <?php echo date("M-Y", $djoin); ?> to <?php echo date("M-Y", $dleft); ?><br />
             </p>
             <br />
 
             <p style="font-size:16px;margin-left:75px;">
-            <br/>
+              <br />
               <strong style="font-size:20px;"><?php echo $row['position1']; ?></strong> <br />
               <strong><?php echo $row['company_name1']; ?></strong> - <?php echo $row['company_add1']; ?><br />
               <em>(<?php echo $row['emp_type1']; ?>)</em> <br />
@@ -110,7 +110,7 @@ include('include/header.php');
             <br />
 
             <p style="font-size:16px;margin-left:75px;">
-            <br/>
+              <br />
               <strong style="font-size:20px;"><?php echo $row['position2']; ?></strong> <br />
               <strong><?php echo $row['company_name2']; ?></strong> - <?php echo $row['company_add2']; ?><br />
               <em>(<?php echo $row['emp_type2']; ?>)</em> <br />
@@ -127,16 +127,17 @@ include('include/header.php');
             </div>
             <hr />
             <p style="font-size:18px;margin-left:75px;">
-            <br/>
-              <strong><em><?php
-              
-              $skills = $row['skills'];
-              $skills = explode(',', $skills);
-              
-              foreach ($skills as $value) {
-                echo ' <span class="label label-success">' . $value . '</span> ';
-              }
-              ?></em></strong>
+              <br />
+              <strong><em>
+                  <?php
+                  $skills = $row['skills'];
+                  $skills = explode(',', $skills);
+
+                  foreach ($skills as $value) {
+                    echo ' <span class="label label-success">' . $value . '</span> ';
+                  }
+                  ?>
+                </em></strong>
             </p>
             <br />
             <br />
@@ -145,11 +146,11 @@ include('include/header.php');
 
             <div class="text-center">
               <i class="fa fa-user-circle-o fa-2x" aria-hidden="true"></i>
-              <h4 style="font-size:20px;"><b>Additional Information</b></h4>
+              <h4 style="font-size:20px;"><b>Personal Information</b></h4>
             </div>
             <hr />
             <p style="font-size:16px;margin-left:75px;">
-              <br/>
+              <br />
               <?php $bday = strtotime($row['dob']); ?>
               <strong>Date of Birth: </strong> <?php echo date("m/d/Y", $bday); ?><br />
               <strong>Age: </strong> <?php echo $row['age']; ?><br />
@@ -171,6 +172,8 @@ include('include/header.php');
       }
       ?>
     </div>
+
+
   </div>
 
 </div>

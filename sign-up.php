@@ -91,7 +91,7 @@ if (isset($_SESSION['id_user']) || isset($_SESSION['id_company'])) {
     </header>
 
     <!-- Content Wrapper. Contains page content -->
-    <div class="content-wrapper" style="margin-left: 0px;">
+    <div class="content-wrapper gradientbg1" style="margin-left: 0px;">
 
 
       <div class="container" style="width:100%;">
@@ -102,24 +102,23 @@ if (isset($_SESSION['id_user']) || isset($_SESSION['id_company'])) {
         </div>
         <div style="max-width:100%">
           <div class="row latest-job margin-top-20">
-            <div class="small-box bg-purple padding-5 gradientbg1">
-              <div class="inner">
-                <h3 class="text-center margin-bottom-20">Join us today without any hesitation</h3><br /><br />
-              </div>
-              <div class="col-md-6 text-right">
-                <a class="btn btn-block btn-info" href="register-candidates.php" style="font-size:20px;">I am a Candidate
-                  <i class="fa fa-arrow-circle-right"></i>
-                </a>
-              </div>
-              <div class="col-md-6 text-left">
-                <a class="btn btn-block btn-info" href="register-company.php" style="font-size:20px;">We are an Employer
-                  <i class="fa fa-arrow-circle-right"></i>
-                </a>
-              </div>
-              <br />
-              <br />
-              <br />
+
+            <div class="inner">
+              <h3 class="text-center margin-bottom-20"><strong><em>Join us today without any hesitation</em></strong></h3><br /><br />
             </div>
+            <div class="col-md-6 text-right">
+              <a class="btn btn-block btn-info" href="register-candidates.php" style="font-size:20px;">I am a Candidate
+                <i class="fa fa-arrow-circle-right"></i>
+              </a>
+            </div>
+            <div class="col-md-6 text-left">
+              <a class="btn btn-block btn-info" href="register-company.php" style="font-size:20px;">We are an Employer
+                <i class="fa fa-arrow-circle-right"></i>
+              </a>
+            </div>
+            <br />
+            <br />
+            <br />
           </div>
         </div>
 

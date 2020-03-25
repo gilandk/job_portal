@@ -34,6 +34,7 @@ include('include/header.php');
             <div class="box-footer">
               <br />
               <br />
+              <br />
               <div class="row">
                 <div class="col-sm-4 border-right">
                   <div class="description-block">
@@ -65,7 +66,7 @@ include('include/header.php');
                 <div class="col-sm-4">
                   <div class="description-block">
                     <?php
-                    $sql3 = "SELECT * FROM apply_job_post WHERE id_company='$_SESSION[id_company]' ";
+                    $sql3 = "SELECT * FROM apply_job_post WHERE id_company='$_SESSION[id_company]' AND status='0' ";
                     $result3 = $conn->query($sql3);
                     $total3 = $result3->num_rows;
                     ?>

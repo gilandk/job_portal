@@ -20,7 +20,7 @@
 <!-- AdminLTE App -->
 <script src="js/adminlte.min.js"></script>
 <script src="js/jquery.twbsPagination.min.js"></script>
-<script src="../js/myscript.js"></script>
+<script src="js/myscript.js"></script>
 </body>
 
 </html>

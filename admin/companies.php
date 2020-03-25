@@ -11,7 +11,7 @@ include('include/header.php');
         <table id="companies" class="table table-hover">
           <thead>
             <th>Company Name</th>
-            <th>Account Creator Name</th>
+            <th>Employer</th>
             <th>Email</th>
             <th>Phone</th>
             <th>City</th>

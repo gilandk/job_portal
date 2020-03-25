@@ -359,16 +359,64 @@ require_once("db.php");
             </div>
             <div class="col-md-6 about-text margin-bottom-20">
               <p>The online job portal application allows job seekers and recruiters to connect. The application provides the ability for job seekers to create their accounts, upload their profile and resume, search for jobs, apply for jobs, view different job openings. The application provides the ability for companies to create their accounts, search Applicants, create job postings, and view Applicants applications.
-                </p>
-                <p>
-                  This website is used to provide a platform for potential Applicants to get their dream job and excel in their career.
-                  This site can be used as a paving path for both companies and job-seekers for a better life .
+              </p>
+              <p>
+                This website is used to provide a platform for potential Applicants to get their dream job and excel in their career.
+                This site can be used as a paving path for both companies and job-seekers for a better life .
 
-                </p>
+              </p>
             </div>
           </div>
         </div>
       </section>
+
+      <section id="about" class="content-header">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12 text-center latest-job margin-bottom-20">
+              <br/>
+              <h2><strong>Contact US</strong></h2>
+              <br />
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <h3><strong><em>Send us a message</em></strong></h3><br/>
+              <form method="post" action="contact.php" enctype="multipart/form-data">
+
+                <div class="form-group">
+                  <label>Full name</label>
+                  <input class="form-control input-lg" id="fullname" name="fullname" type="text" placeholder="Full name" />
+                </div>
+
+                <div class="form-group">
+                  <label>Email Address</label>
+                  <input class="form-control input-lg" id="email" name="email" type="email" placeholder="Email Address" />
+                </div>
+
+                <div class="form-group">
+                  <label>Contact No</label>
+                  <input class="form-control input-lg" type="text" id="contact" name="contact" placeholder="Contact No" />
+                </div>
+
+                <div class="form-group">
+                  <label>Message</label>
+                  <textarea class="form-control input-lg" rows="8" id="message" name="message" placeholder="Enter your Message"></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-success" id="send" name="send">Send</button>
+
+              </form>
+
+            </div>
+            <div class="col-md-6" style="padding-left:50px;">
+            <h3><strong><em>You may find us here @</em></strong></h3><br/>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3857.430406310137!2d120.92062830952682!3d14.801082825492063!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397ad6bd3dd4583%3A0x30149e131774a35f!2sDr.%20Yanga&#39;s%20Colleges%2C%20Inc.!5e0!3m2!1sen!2sph!4v1585106363158!5m2!1sen!2sph" width="600" height="500" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <br />
     </div>
     <!-- /.content-wrapper -->

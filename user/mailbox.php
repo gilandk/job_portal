@@ -10,7 +10,7 @@ include('include/header.php');
           <div class="box-header with-border">
             <h3 class="box-title" style="margin-bottom: 20px;">Mailbox</h3>
             <div class="pull-right">
-            <a href="create-mail.php" class="btn btn-primary btn-block margin-bottom">Compose</a>
+              <a href="create-mail.php" class="btn btn-primary btn-block margin-bottom">Compose</a>
             </div>
             <!-- /.box-tools -->
           </div>
@@ -26,6 +26,7 @@ include('include/header.php');
                   </tr>
                 </thead>
                 <tbody>
+
                   <?php
                   $sql = "SELECT * FROM mailbox WHERE id_fromuser='$_SESSION[id_user]' OR id_touser='$_SESSION[id_user]'";
                   $result = $conn->query($sql);

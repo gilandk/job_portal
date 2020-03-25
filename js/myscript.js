@@ -122,6 +122,7 @@ $(function() {
 
 $(function() {
     $('#activejobs').DataTable({
+        'order': [3, "asc"],
         'paging': true,
         'lengthChange': true,
         'searching': true,
@@ -130,6 +131,19 @@ $(function() {
         'autoWidth': false
     });
 });
+
+$(function() {
+    $('#messages').DataTable({
+        'order': [0, "desc"],
+        'paging': true,
+        'lengthChange': true,
+        'searching': true,
+        'ordering': true,
+        'info': true,
+        'autoWidth': false
+    });
+});
+
 
 $(function() {
     $('#applications').DataTable({

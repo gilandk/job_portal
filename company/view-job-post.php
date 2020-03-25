@@ -1,7 +1,7 @@
 <?php
 include('include/header.php');
 ?>
-<div class="col-md-9 bg-white padding-2">
+<div class="col-md-12 bg-white padding-2">
   <div class="row">
     <div class="col-md-12">
       <?php
@@ -17,38 +17,42 @@ include('include/header.php');
             <h4><i>(<?php echo $row['jobtype']; ?>)</i></h4>
           </div>
           <div class="pull-right">
-            <a href="my-job-post.php" class="btn btn-default btn-lg btn-flat margin-top-20"><i class="fa fa-arrow-circle-left"></i> Back</a>
+            <a href="my-job-post.php" class="btn btn-default"><i class="fa fa-arrow-circle-left"></i> Back</a>
           </div>
           <div class="clearfix"></div>
-          <hr>
-          <div>
+          <hr/>
+          <div class="row">
+            <div class="col-md-12">
+              <h4 style="font-size:16px;"><b>Job Description</b></h4>
+              <?php echo stripcslashes($row['description']); ?><br />
 
-            <div class="row">
-              <div class="col-md-12">
-                <h4 style="font-size:20px;"><b>Job Description</b></h4>
-                <?php echo stripcslashes($row['description']); ?><br />
-                <br />
-           
+              <br />
+              <div class="pull-left">
+                <p style="font-size:16px;"><i class="fa fa-users" aria-hidden="true"></i> <strong>Position available : </strong></p>
+                <p style="font-size:16px;"><i class="fa fa-suitcase" aria-hidden="true"></i> <strong>With Experience atleast : </strong></p>
+                <p style="font-size:16px;"> <i class="fa fa-usd" aria-hidden="true"></i> <strong>Salary : </strong></p>
+                <p style="font-size:16px;"> <i class="fa fa-calendar-o" aria-hidden="true"></i> <strong>Apply Till : </strong></p>
               </div>
-            </div>
-            <br />
-            <p style="font-size:16px;"><i class="fa fa-users" aria-hidden="true"></i> <strong>Position available: </strong> <?php echo $row['position']; ?></p>
-            <p style="font-size:16px;"><i class="fa fa-suitcase" aria-hidden="true"></i> <strong>With Experience atleast: </strong> <?php echo $row['experience']; ?> YEARS</p>
-            <p style="font-size:16px;"><i class="fa fa-usd" aria-hidden="true"></i> <strong>Salary: </strong><i class="fa fa-rub" aria-hidden="true"></i> <?php echo number_format($row['minimumsalary']); ?> - </strong><i class="fa fa-rub" aria-hidden="true"></i> <?php echo number_format($row['maximumsalary']); ?></p>
-            <p style="font-size:16px;"><i class="fa fa-calendar-o" aria-hidden="true"></i> <strong>Apply Till: </strong><?php echo date("M-d-Y", strtotime($row['createdat'])); ?> - </strong><?php echo date("M-d-Y", strtotime($row['applyBy'])); ?></p>
-            <div>
-              <br/>
-              <a href="edit-job-post.php?id=<?php echo $row['id_jobpost']; ?>" class="btn btn-primary">UPDATE</a>
+
+              <div class="pull-left" style="margin-left:30px;">
+                <p style="font-size:16px;"> <?php echo $row['position']; ?></p>
+
+                <p style="font-size:16px;"> <?php echo $row['experience']; ?> YEARS</p>
+
+                <p style="font-size:16px;"> <i class="fa fa-rub" aria-hidden="true"></i> <?php echo number_format($row['minimumsalary']); ?> - </strong><i class="fa fa-rub" aria-hidden="true"></i> <?php echo number_format($row['maximumsalary']); ?></p>
+
+                <p style="font-size:16px;"> <?php echo date("M-d-Y", strtotime($row['createdat'])); ?> - </strong><?php echo date("M-d-Y", strtotime($row['applyBy'])); ?>
+                </p>
+              </div>
             </div>
         <?php
         }
       }
         ?>
           </div>
-    </div>
 
+    </div>
   </div>
-</div>
 </div>
 </section>
 

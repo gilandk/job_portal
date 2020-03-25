@@ -37,7 +37,7 @@ if ($result->num_rows == 0) {
             <h4><i class="fa fa-telegram" aria-hidden="true"></i> <i><?php echo $row['contactno'] ?></i></h4>
           </div>
           <div class="pull-right">
-            <a href="job-applications.php" class="btn btn-default btn-lg btn-flat margin-top-20"><i class="fa fa-arrow-circle-left"></i> Back</a><br /><br />
+            <a href="job-applications.php" class="btn btn-default"><i class="fa fa-arrow-circle-left"></i> Back</a><br /><br />
             <?php
             if ($row['resume'] != "") {
               echo '<a href="../uploads/resume/' . $row['resume'] . '" class="btn btn-info" download="Resume">Download Resume</a>';
@@ -78,7 +78,7 @@ if ($result->num_rows == 0) {
             <br />
             <hr />
             <div class="text-center">
-              <i class="fa fa-ravelry fa-2x" aria-hidden="true"></i>
+            <i class="fa fa-suitcase fa-2x" aria-hidden="true"></i>
               <h4 style="font-size:20px;"><b>Employment History</b></h4>
             </div>
             <hr />
@@ -151,7 +151,7 @@ if ($result->num_rows == 0) {
 
             <div class="text-center">
               <i class="fa fa-user-circle-o fa-2x" aria-hidden="true"></i>
-              <h4 style="font-size:20px;"><b>Additional Information</b></h4>
+              <h4 style="font-size:20px;"><b>Personal Information</b></h4>
             </div>
             <hr />
             <p style="font-size:16px;margin-left:75px;">

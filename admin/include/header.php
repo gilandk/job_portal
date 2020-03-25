@@ -38,6 +38,17 @@ require_once("../db.php");
   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
   <![endif]-->
 
+  <script src="../js/tinymce/tinymce.min.js"></script>
+
+  <script>
+    tinymce.init({
+      selector: '#description',
+      height: 300
+
+    });
+  </script>
+
+
   <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
@@ -50,14 +61,14 @@ require_once("../db.php");
       <!-- Logo -->
       <a href="index.php" class="logo logo-bg">
         <!-- mini logo for sidebar mini 50x50 pixels -->
-        <span class="logo-mini"><b>J</b>P</span>
+        <span class="logo-mini"><b>DYCI</b></span>
         <!-- logo for regular state and mobile devices -->
         <span class="logo-lg"><b>DYCI </b>Job Portal</span>
       </a>
 
       <!-- Header Navbar: style can be found in header.less -->
       <nav class="navbar navbar-static-top">
-      <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
+        <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
           <span class="sr-only">Toggle navigation</span>
         </a>
         <!-- Navbar Right Menu -->
@@ -82,6 +93,20 @@ require_once("../db.php");
           <li class="active"><a href="active-jobs.php"><i class="fa fa-briefcase"></i> <span>Active Jobs</span></a></li>
           <li><a href="applications.php"><i class="fa fa-address-card-o"></i> <span>Applications</span></a></li>
           <li><a href="companies.php"><i class="fa fa-building"></i> <span>Companies</span></a></li>
+          <li><a href="contactus.php"><i class="fa fa-inbox" aria-hidden="true"></i> <span>Messages
+                <?php
+                $sql1 = "SELECT * FROM contact_us WHERE status='0'";
+                $result1 = $conn->query($sql1);
+                $total1 = $result1->num_rows;
+
+                if ($total1 == '0') {
+                  echo '';
+                } else {
+                  echo '<span class="label label-danger pull-right"> ' . $total1 . '</span>';
+                }
+                ?>
+
+              </span></a></li>
 
           <li><a href="../logout.php"><i class="fa fa-arrow-circle-o-right"></i><span> Logout</span></a></li>
 
