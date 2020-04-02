@@ -31,13 +31,15 @@ include('include/header.php');
             <h4><i class="fa fa-telegram" aria-hidden="true"></i> <i><?php echo $row['contactno'] ?></i></h4>
           </div>
           <div class="pull-right">
-            <a href="job-applications.php" class="btn btn-primary"><i class="fa fa-arrow-circle-left"></i> Back</a><br /><br />
+            <a href="job-applications.php" class="btn btn-default"><i class="fa fa-arrow-circle-left"></i> Back</a><br /><br />
             <?php
             if ($row['resume'] != "") {
-              echo '<a href="../uploads/resume/' . $row['resume'] . '" class="btn btn-success" download="Resume">Download Resume</a>';
+              echo '<a href="../uploads/resume/' . $row['resume'] . '" class="btn btn-success" download="Resume"><i class="fa fa-cloud-download" aria-hidden="true"></i> Download Resume</a>';
             }
             ?>
-            <a href="print-resume.php" target="_blank" class="btn btn-success"><i class="fa fa-arrow-circle-left"></i> Print</a><br /><br />
+            <br />
+            <br />
+            <a href="print-resume.php" target="_blank" class="btn btn-primary"><i class="fa fa-arrow-circle-left"></i> Print</a>
           </div>
           <div class="clearfix"></div>
 
@@ -54,16 +56,15 @@ include('include/header.php');
               <strong style="font-size:18px;"><?php echo $row['qualification'] . ' ' . $row['course']; ?></strong><br />
               <strong> <?php echo $row['fos']; ?></strong><br />
 
-              <?php $yearAt = strtotime($row['yearAt']); ?>
-
               <?php
+
+              $yearAt = strtotime($row['yearAt']);
+
               $passingyear = strtotime($row['passingyear']);
               $cdate = date("M-Y");
 
               if ($passingyear != $cdate) {
-                $ygrad = $row['passingyear'];
-              } else {
-                $ygrad = date("M-Y", $yeargrad);
+                $ygrad = $passingyear = date("M-Y", strtotime($row['passingyear']));
               }
               ?>
 
@@ -71,12 +72,26 @@ include('include/header.php');
             </p>
             <br />
             <hr />
+
+
+            <!-- Start emp history -->
+
             <div class="text-center">
               <i class="fa fa-suitcase fa-2x" aria-hidden="true"></i>
               <h4 style="font-size:20px;"><b>Employment History</b></h4>
             </div>
             <hr />
-            <p style="font-size:16px;margin-left:75px;">
+
+            <?php
+
+            if (empty($row['company_name'])) {
+              $display = ';display:none;';
+            } else {
+              $display = '';
+            }
+            ?>
+
+            <p style="font-size:16px;margin-left:75px<?php echo $display; ?>">
               <br />
               <strong style="font-size:20px;"><?php echo $row['position']; ?></strong> <br />
               <strong><?php echo $row['company_name']; ?></strong> - <?php echo $row['company_add']; ?><br />
@@ -97,7 +112,16 @@ include('include/header.php');
             </p>
             <br />
 
-            <p style="font-size:16px;margin-left:75px;">
+            <?php
+
+            if (empty($row['company_name1'])) {
+              $display1 = ';display:none;';
+            } else {
+              $display1 = '';
+            }
+            ?>
+
+            <p style="font-size:16px;margin-left:75px<?php echo $display1; ?>">
               <br />
               <strong style="font-size:20px;"><?php echo $row['position1']; ?></strong> <br />
               <strong><?php echo $row['company_name1']; ?></strong> - <?php echo $row['company_add1']; ?><br />
@@ -109,7 +133,16 @@ include('include/header.php');
             </p>
             <br />
 
-            <p style="font-size:16px;margin-left:75px;">
+            <?php
+
+            if (empty($row['company_name2'])) {
+              $display2 = ';display:none;';
+            } else {
+              $display2 = '';
+            }
+            ?>
+
+            <p style="font-size:16px;margin-left:75px<?php echo $display2; ?>">
               <br />
               <strong style="font-size:20px;"><?php echo $row['position2']; ?></strong> <br />
               <strong><?php echo $row['company_name2']; ?></strong> - <?php echo $row['company_add2']; ?><br />
@@ -121,6 +154,9 @@ include('include/header.php');
             </p>
             <br />
             <hr />
+
+            <!--end emp history -->
+
             <div class="text-center">
               <i class="fa fa-lightbulb-o fa-2x" aria-hidden="true"></i>
               <h4 style="font-size:20px;"><b>Skills</b></h4>

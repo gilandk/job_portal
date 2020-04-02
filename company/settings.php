@@ -51,7 +51,7 @@ include('include/header.php');
   <div class="row">
     <div class="col-md-6">
       <form action="deactivate-account.php" method="post">
-        <label><input type="checkbox" required> I Want To Deactivate My Account</label>
+        <label><input type="checkbox" required> I Want To Deactivate My Account</label><br/>
         <button class="btn btn-danger btn-flat btn-lg">Deactivate My Account</button>
       </form>
     </div>

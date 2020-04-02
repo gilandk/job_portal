@@ -46,7 +46,7 @@ require_once("db.php");
       <!-- Logo -->
       <a href="index.php" class="logo logo-bg">
         <!-- mini logo for sidebar mini 50x50 pixels -->
-        <span class="logo-mini"><b>J</b>P</span>
+        <span class="logo-mini"><b>DYCI</b></span>
         <!-- logo for regular state and mobile devices -->
         <span class="logo-lg"><b>DYCI</b> Job Portal</span>
 
@@ -61,13 +61,10 @@ require_once("db.php");
               <a href="jobs.php">Find Jobs</a>
             </li>
             <li>
-              <a href="#Applicants">Applicants</a>
-            </li>
-            <li>
-              <a href="#company">Company</a>
-            </li>
-            <li>
               <a href="#about">About Us</a>
+            </li>
+            <li>
+              <a href="#contact_us">Contact Us</a>
             </li>
             <?php if (empty($_SESSION['id_user']) && empty($_SESSION['id_company'])) { ?>
               <li>
@@ -118,7 +115,7 @@ require_once("db.php");
         <div class="container">
           <div class="row">
             <div class="col-md-12 latest-job margin-bottom-20">
-              <h1 class="text-center"><strong><em> Latest Jobs</em></strong></h1>
+              <h1 class="text-center"><strong><em> Featured Jobs</em></strong></h1>
               <br />
               <?php
               /* Show any 5 random job post
@@ -126,7 +123,7 @@ require_once("db.php");
            * Store sql query result in $result variable and loop through it if we have any rows
            * returned from database. $result->num_rows will return total number of rows returned from database.
           */
-              $sql = "SELECT * FROM job_post Order By Rand() Limit 10";
+              $sql = "SELECT * FROM job_post Order By Rand() Limit 20";
               $result = $conn->query($sql);
               if ($result->num_rows > 0) {
                 while ($row = $result->fetch_assoc()) {
@@ -145,12 +142,20 @@ require_once("db.php");
                         ?>
                         <img class="attachment-img" src="uploads/logo/<?php echo $image; ?>" alt="Attachment Image">
 
-
                         <div class="attachment-pushed">
-                          <h4 class="attachment-heading"><a href="view-job-post.php?id=<?php echo $row['id_jobpost']; ?>"><?php echo $row['jobtitle']; ?></a> <span class="attachment-heading pull-right">PHP <?php echo number_format($row['maximumsalary']); ?>/Month</span></h4>
-                          <div class="attachment-text">
-                            <div><strong><?php echo $row1['companyname']; ?> | <?php echo $row1['city']; ?> | Experience <?php echo $row['experience']; ?> Years</strong></div>
+                          <h4 class="attachment-heading"><a href="view-job-post.php?id=<?php echo $row['id_jobpost']; ?>"><?php echo $row['jobtitle']; ?></a></h4>
+
+                          <div class="attachment-text" style="margin-top:5px;">
+                            <div>
+                              <strong>
+                                <?php echo $row1['companyname']; ?> | <?php echo $row1['city']; ?>, <?php echo $row1['state']; ?><br />
+                                Experience <?php echo $row['experience']; ?> Years <br/>
+                              </strong>
+
+                              <span class="attachment-heading pull-right" style="font-size:15px;"><i class="fa fa-calendar-check-o" aria-hidden="true"></i><em><strong> Till: </strong><?php echo date("F-d-Y", strtotime($row['applyBy']));?></em>
+                            </div>
                           </div>
+
                         </div>
                       </div>
               <?php
@@ -370,18 +375,18 @@ require_once("db.php");
         </div>
       </section>
 
-      <section id="about" class="content-header">
+      <section id="contact_us" class="content-header">
         <div class="container">
           <div class="row">
             <div class="col-md-12 text-center latest-job margin-bottom-20">
-              <br/>
+              <br />
               <h2><strong>Contact US</strong></h2>
               <br />
             </div>
           </div>
           <div class="row">
-            <div class="col-md-6">
-              <h3><strong><em>Send us a message</em></strong></h3><br/>
+            <div class="col-md-6 text-center">
+              <h3><strong><em>Send us a message</em></strong></h3><br />
               <form method="post" action="contact.php" enctype="multipart/form-data">
 
                 <div class="form-group">
@@ -409,9 +414,9 @@ require_once("db.php");
               </form>
 
             </div>
-            <div class="col-md-6" style="padding-left:50px;">
-            <h3><strong><em>You may find us here @</em></strong></h3><br/>
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3857.430406310137!2d120.92062830952682!3d14.801082825492063!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397ad6bd3dd4583%3A0x30149e131774a35f!2sDr.%20Yanga&#39;s%20Colleges%2C%20Inc.!5e0!3m2!1sen!2sph!4v1585106363158!5m2!1sen!2sph" width="600" height="500" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+            <div class="col-md-6 text-center">
+              <h3><strong><em>You may find us here @</em></strong></h3><br />
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3857.430406310137!2d120.92062830952682!3d14.801082825492063!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397ad6bd3dd4583%3A0x30149e131774a35f!2sDr.%20Yanga&#39;s%20Colleges%2C%20Inc.!5e0!3m2!1sen!2sph!4v1585106363158!5m2!1sen!2sph" width="430" height="400" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
             </div>
           </div>
         </div>

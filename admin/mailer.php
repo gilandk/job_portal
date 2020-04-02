@@ -1,6 +1,6 @@
 <?php
-require('PHPMailer/PHPMailerAutoload.php');
-require('credentials.php');
+require('../PHPMailer/PHPMailerAutoload.php');
+require('../PHPMailer/credentials.php');
 
 
 if (isset($_POST['send'])) {
@@ -8,8 +8,6 @@ if (isset($_POST['send'])) {
     $email = $_POST['email'];
     $subject = $_POST['subject'];
     $message = $_POST['message'];
-
-    $message;
 
     $mail = new PHPMailer;
 
@@ -19,7 +17,7 @@ if (isset($_POST['send'])) {
     $mail->Host = 'smtp.gmail.com';                       // Specify main and backup SMTP servers
     $mail->SMTPAuth = true;                               // Enable SMTP authentication
     $mail->Username = $jobemail;            // SMTP username
-    $mail->Password = $password;                         // SMTP password
+    $mail->Password = $jobpassword;                         // SMTP password
     $mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
     $mail->Port = 587;                                    // TCP port to connect to
 

@@ -91,7 +91,6 @@ require_once("../db.php");
     }
   </script>
 
-
   <script>
     function dleft2() {
       var checkBox = document.getElementById("cbdleft2");
@@ -319,13 +318,13 @@ require_once("../db.php");
                 if ($notif == '0') {
                   echo '';
                 } else {
-                  echo '<span class="label label-danger pull-right"> ' . $notif . '</span>';
+                  echo '<span class="label label-danger pull-right header"> ' . $notif . '</span>';
                 }
                 ?>
               </span>
             </a>
             <ul class="treeview-menu">
-            <li><a href="mailbox.php"><i class="fa fa-inbox" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;View Mailbox</a></li>
+            <li><a href="mailbox.php"><i class="fa fa-inbox" aria-hidden="true"></i> View Mailbox</a></li>
               <li><a href="create-mail.php"><i class="fa fa-share"></i>Create Mail</a></li>
             </ul>
           </li>

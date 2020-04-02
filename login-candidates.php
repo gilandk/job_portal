@@ -63,7 +63,7 @@ if (isset($_SESSION['id_user']) || isset($_SESSION['id_company'])) {
         </div>
         <div class="row">
           <div class="col-xs-8">
-            <a href="#">I forgot my password</a>
+            <a href="forgot-password(user).php">I forgot my password</a>
           </div>
           <!-- /.col -->
           <div class="col-xs-4">
@@ -102,10 +102,10 @@ if (isset($_SESSION['id_user']) || isset($_SESSION['id_company'])) {
 
       <?php
       //If User Failed To log in then show error message.
-      if (isset($_SESSION['loginLimit'])) {
+      if (isset($_SESSION['forgotPassSuccess'])) {
       ?>
         <div>
-          <p class="text-center">Login Limit Exceeded
+          <p class="text-center">You may now login you're account
           </p>
         </div>
       <?php

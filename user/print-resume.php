@@ -18,7 +18,7 @@ require_once("../db.php");
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Job Portal</title>
+  <title><?php echo $_SESSION['name']; ?> Resume</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
@@ -38,7 +38,6 @@ require_once("../db.php");
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
 
   <style type="text/css">
-    
     .wrapper {
       max-height: 11in;
       max-width: 8.27in;
@@ -71,7 +70,6 @@ require_once("../db.php");
     .wrapper::-webkit-scrollbar {
       width: 0 !important
     }
-
   </style>
   <script>
     function myFunction() {
@@ -82,10 +80,10 @@ require_once("../db.php");
 </head>
 
 <body>
-<div class="text-center">
-  <br/>
-  <button class="btn btn-primary screen" onclick="myFunction()">Download Resume</button>
-</div>
+  <div class="text-center">
+    <br />
+    <button class="btn btn-primary screen" onclick="myFunction()"><i class="fa fa-cloud-download" aria-hidden="true"></i> Download Resume</button>
+  </div>
   <div class="container wrapper">
     <div class="col-md-12">
       <?php
@@ -126,14 +124,15 @@ require_once("../db.php");
             <strong style="font-size:14px;"><?php echo $row['qualification'] . ' ' . $row['course']; ?></strong><br />
             <strong> <?php echo $row['fos']; ?></strong><br />
 
-            <?php $yearAt = strtotime($row['yearAt']); ?>
             <?php
+
+            $yearAt = strtotime($row['yearAt']);
+
             $passingyear = strtotime($row['passingyear']);
             $cdate = date("M-Y");
+
             if ($passingyear != $cdate) {
-              $ygrad = $row['passingyear'];
-            } else {
-              $ygrad = date("M-Y", $yeargrad);
+              $ygrad = $passingyear = date("M-Y", strtotime($row['passingyear']));
             }
             ?>
             <?php echo date("M-Y", $yearAt); ?> to <?php echo $ygrad; ?><br />
@@ -144,8 +143,17 @@ require_once("../db.php");
           </div>
           <hr />
 
+          <?php
+
+          if (empty($row['company_name'])) {
+            $display = ';display:none;';
+          } else {
+            $display = '';
+          }
+          ?>
+
           <div class="pull-left">
-            <p style="font-size:14px;margin-left:50px;">
+            <p style="font-size:14px;margin-left:50px<?php echo $display; ?>">
               <strong style="font-size:14px;"><?php echo $row['position']; ?></strong> <em>(<?php echo $row['emp_type']; ?>)</em> <br />
               <strong><?php echo $row['company_name']; ?></strong> - <?php echo $row['company_add']; ?><br />
 
@@ -159,19 +167,34 @@ require_once("../db.php");
               ?>
               <?php echo date("M-Y", $djoin); ?> to <?php echo date("M-Y", $dleft); ?><br />
             </p>
-          </div>
-          <div class="pull-right" style="margin-right:150px;">
-            <p style="font-size:14px;margin-left:50px;">
+
+            <?php
+
+            if (empty($row['company_name1'])) {
+              $display1 = ';display:none;';
+            } else {
+              $display1 = '';
+            }
+            ?>
+
+            <p style="font-size:14px;margin-left:50px<?php echo $display1; ?>">
               <strong style="font-size:14px;"><?php echo $row['position1']; ?></strong> <em>(<?php echo $row['emp_type1']; ?>)</em> <br />
               <strong><?php echo $row['company_name1']; ?></strong> - <?php echo $row['company_add1']; ?><br />
               <?php $djoin1 = strtotime($row['datejoined1']); ?>
               <?php $dleft1 = strtotime($row['dateleft1']); ?>
               <?php echo date("M-Y", $djoin1); ?> to <?php echo date("M-Y", $dleft1); ?><br />
             </p>
-          </div>
 
-          <div class="pull-left">
-            <p style="font-size:14px;margin-left:50px;">
+            <?php
+
+            if (empty($row['company_name2'])) {
+              $display2 = ';display:none;';
+            } else {
+              $display2 = '';
+            }
+            ?>
+
+            <p style="font-size:14px;margin-left:50px<?php echo $display2; ?>">
               <strong style="font-size:14px;"><?php echo $row['position2']; ?></strong> <em>(<?php echo $row['emp_type2']; ?>)</em> <br />
               <strong><?php echo $row['company_name2']; ?></strong> - <?php echo $row['company_add2']; ?><br />
               <?php $djoin2 = strtotime($row['datejoined2']); ?>

@@ -48,7 +48,7 @@ include('include/header.php');
         </div>
 
         <div class="form-group">
-          <button type="submit" class="btn btn-flat btn-success">Create</button>
+          <button type="submit" class="btn btn-primary">Create</button>
         </div>
       </div>
     </form>

@@ -20,7 +20,7 @@ if ($result->num_rows == 0) {
       if ($result->num_rows > 0) {
         while ($row = $result->fetch_assoc()) {
       ?>
-          <div class="pull-left">
+         <div class="pull-left" style="margin-left:75px;">
             <?php
             if ($row['profile'] > 0) {
               $image = $row['profile'];
@@ -30,7 +30,7 @@ if ($result->num_rows == 0) {
             ?>
             <img src="../uploads/profile/<?php echo $image; ?>" class="img-thumbnail" style="max-height:144px;max-width:144px;">
           </div>
-          <div class="pull-left" style="margin-left:10px;">
+          <div class="pull-left" style="margin-left:20px;">
             <h2><b><i><?php echo $row['fname'] ?></i></b></h2>
             <h4><i class="fa fa-envelope-square" aria-hidden="true"></i><i> <?php echo $row['email'] ?></i></h4>
             <h4><i class="fa fa-location-arrow" aria-hidden="true"></i><i> <?php echo $row['address']; ?>, <?php echo $row['city']; ?>, <?php echo $row['state']; ?></i></h4>
@@ -40,12 +40,15 @@ if ($result->num_rows == 0) {
             <a href="job-applications.php" class="btn btn-default"><i class="fa fa-arrow-circle-left"></i> Back</a><br /><br />
             <?php
             if ($row['resume'] != "") {
-              echo '<a href="../uploads/resume/' . $row['resume'] . '" class="btn btn-info" download="Resume">Download Resume</a>';
+              echo '<a href="../uploads/resume/' . $row['resume'] . '" class="btn btn-success" download="Resume"><i class="fa fa-cloud-download" aria-hidden="true"></i> Download Resume</a>';
             }
             ?>
+            <br />
+            <br />
+            <a href="print-resume.php?id=<?php echo $row['id_user'];?>" target="_blank" class="btn btn-primary"><i class="fa fa-arrow-circle-left"></i> Print</a>
           </div>
           <div class="clearfix"></div>
-        
+
           <div>
             <!--div-->
             <hr>
@@ -55,21 +58,19 @@ if ($result->num_rows == 0) {
             </div>
             <hr />
             <p style="font-size:16px;margin-left:75px;">
-            <br/>
-            <strong style="font-size:18px;"><?php echo $row['qualification'] .' ' . $row['course']; ?></strong><br/>
-            <strong> <?php echo $row['fos']; ?></strong><br/>
+              <br />
+              <strong style="font-size:18px;"><?php echo $row['qualification'] . ' ' . $row['course']; ?></strong><br />
+              <strong> <?php echo $row['fos']; ?></strong><br />
 
-              <?php $yearAt = strtotime($row['yearAt']); ?>
-              
               <?php
+
+              $yearAt = strtotime($row['yearAt']);
+
               $passingyear = strtotime($row['passingyear']);
               $cdate = date("M-Y");
 
-              if($passingyear != $cdate ){
-                $ygrad = $row['passingyear'];
-              }
-              else{
-                $ygrad = date("M-Y", $yeargrad);
+              if ($passingyear != $cdate) {
+                $ygrad = $passingyear = date("M-Y", strtotime($row['passingyear']));
               }
               ?>
 
@@ -77,34 +78,57 @@ if ($result->num_rows == 0) {
             </p>
             <br />
             <hr />
+
+
+            <!-- Start emp history -->
+
             <div class="text-center">
-            <i class="fa fa-suitcase fa-2x" aria-hidden="true"></i>
+              <i class="fa fa-suitcase fa-2x" aria-hidden="true"></i>
               <h4 style="font-size:20px;"><b>Employment History</b></h4>
             </div>
             <hr />
-            <p style="font-size:16px;margin-left:75px;">
-            <br/>
+
+            <?php
+
+            if (empty($row['company_name'])) {
+              $display = ';display:none;';
+            } else {
+              $display = '';
+            }
+            ?>
+
+            <p style="font-size:16px;margin-left:75px<?php echo $display; ?>">
+              <br />
               <strong style="font-size:20px;"><?php echo $row['position']; ?></strong> <br />
               <strong><?php echo $row['company_name']; ?></strong> - <?php echo $row['company_add']; ?><br />
               <em>(<?php echo $row['emp_type']; ?>)</em> <br />
 
               <?php $djoin = strtotime($row['datejoined']); ?>
               <?php
-              
+
               $dleft = strtotime($row['dateleft']);
               $curdate = date("M-Y");
 
-              if($dleft != $curdate) {
+              if ($dleft != $curdate) {
                 $stats = "Up to Present";
               }
-              
+
               ?>
               <?php echo date("M-Y", $djoin); ?> to <?php echo date("M-Y", $dleft); ?><br />
             </p>
             <br />
 
-            <p style="font-size:16px;margin-left:75px;">
-            <br/>
+            <?php
+
+            if (empty($row['company_name1'])) {
+              $display1 = ';display:none;';
+            } else {
+              $display1 = '';
+            }
+            ?>
+
+            <p style="font-size:16px;margin-left:75px<?php echo $display1; ?>">
+              <br />
               <strong style="font-size:20px;"><?php echo $row['position1']; ?></strong> <br />
               <strong><?php echo $row['company_name1']; ?></strong> - <?php echo $row['company_add1']; ?><br />
               <em>(<?php echo $row['emp_type1']; ?>)</em> <br />
@@ -115,8 +139,17 @@ if ($result->num_rows == 0) {
             </p>
             <br />
 
-            <p style="font-size:16px;margin-left:75px;">
-            <br/>
+            <?php
+
+            if (empty($row['company_name2'])) {
+              $display2 = ';display:none;';
+            } else {
+              $display2 = '';
+            }
+            ?>
+
+            <p style="font-size:16px;margin-left:75px<?php echo $display2; ?>">
+              <br />
               <strong style="font-size:20px;"><?php echo $row['position2']; ?></strong> <br />
               <strong><?php echo $row['company_name2']; ?></strong> - <?php echo $row['company_add2']; ?><br />
               <em>(<?php echo $row['emp_type2']; ?>)</em> <br />
@@ -127,22 +160,26 @@ if ($result->num_rows == 0) {
             </p>
             <br />
             <hr />
+
+            <!--end emp history -->
+
             <div class="text-center">
               <i class="fa fa-lightbulb-o fa-2x" aria-hidden="true"></i>
               <h4 style="font-size:20px;"><b>Skills</b></h4>
             </div>
             <hr />
             <p style="font-size:18px;margin-left:75px;">
-            <br/>
-              <strong><em><?php
-              
-              $skills = $row['skills'];
-              $skills = explode(',', $skills);
-              
-              foreach ($skills as $value) {
-                echo ' <span class="label label-success">' . $value . '</span>';
-              }
-              ?></em></strong>
+              <br />
+              <strong><em>
+                  <?php
+                  $skills = $row['skills'];
+                  $skills = explode(',', $skills);
+
+                  foreach ($skills as $value) {
+                    echo ' <span class="label label-success">' . $value . '</span> ';
+                  }
+                  ?>
+                </em></strong>
             </p>
             <br />
             <br />
@@ -155,7 +192,7 @@ if ($result->num_rows == 0) {
             </div>
             <hr />
             <p style="font-size:16px;margin-left:75px;">
-              <br/>
+              <br />
               <?php $bday = strtotime($row['dob']); ?>
               <strong>Date of Birth: </strong> <?php echo date("m/d/Y", $bday); ?><br />
               <strong>Age: </strong> <?php echo $row['age']; ?><br />
@@ -167,16 +204,6 @@ if ($result->num_rows == 0) {
             <br />
             <hr />
 
-            <div class="row justify-content-center">
-              <div class="col-md-6 text-right">
-                <a href="under-review.php?id=<?php echo $row['id_user']; ?>&id_jobpost=<?php echo $_GET['id_jobpost']; ?>" class="btn btn-success">Mark Under Review</a>
-              </div>
-              <div class="col-md-6 text-left">
-                <a href="reject.php?id=<?php echo $row['id_user']; ?>&id_jobpost=<?php echo $_GET['id_jobpost']; ?>" class="btn btn-danger">Reject Application</a>
-              </div>
-            </div>
-
-
             <!---div-->
           </div>
 
@@ -187,6 +214,8 @@ if ($result->num_rows == 0) {
       }
       ?>
     </div>
+
+
   </div>
 
 </div>

@@ -81,7 +81,7 @@ include('include/header.php');
               </div>
 
               <div class="col-sm-12">
-                <div class="description-block" style="padding-left:150px;padding-right:150px;">
+                <div class="description-block" style="padding-left:100px;padding-right:100px;">
                   <br />
                   <br />
                   <h4 style="font-size:16px;"><b>COMPANY SUMMARY</b></h4>

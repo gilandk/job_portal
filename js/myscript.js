@@ -147,6 +147,7 @@ $(function() {
 
 $(function() {
     $('#applications').DataTable({
+        'order': [6, "desc"],
         'paging': true,
         'lengthChange': true,
         'searching': true,
@@ -158,6 +159,7 @@ $(function() {
 
 $(function() {
     $('#companies').DataTable({
+        'order': [7, "desc"],
         'paging': true,
         'lengthChange': true,
         'searching': true,

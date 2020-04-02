@@ -17,8 +17,8 @@ include('include/header.php');
             <th>City</th>
             <th>State</th>
             <th>Country</th>
+            <th>Date Joined</th>
             <th>Status</th>
-            <th>Delete</th>
           </thead>
           <tbody>
             <?php
@@ -28,31 +28,55 @@ include('include/header.php');
               while ($row = $result->fetch_assoc()) {
             ?>
                 <tr>
-                  <td><?php echo $row['companyname']; ?></td>
+                <?php
+                
+                if ($row['active'] == '2') {
+                  $blink = '<span class="label label-danger blink">New</span>';
+                }
+                else{
+                  $blink = '';
+                }
+
+                ?>
+
+                  <td><?php echo $blink . ' ' . $row['companyname']; ?></td>
                   <td><?php echo $row['name']; ?></td>
                   <td><?php echo $row['email']; ?></td>
                   <td><?php echo $row['contactno']; ?></td>
                   <td><?php echo $row['city']; ?></td>
                   <td><?php echo $row['state']; ?></td>
                   <td><?php echo $row['country']; ?></td>
+                  <td><?php echo date("F-d-Y", strtotime($row['createdAt'])); ?></td>
                   <td>
+
                     <?php
                     if ($row['active'] == '1') {
-                      echo "Activated";
-                    } else if ($row['active'] == '2') {
+                      echo '<span class="label label-success">Activated</span>';
                     ?>
-                      <a href="reject-company.php?id=<?php echo $row['id_company']; ?>">Reject</a> <a href="approve-company.php?id=<?php echo $row['id_company']; ?>">Approve</a>
+                      <a href="deact-company.php?id=<?php echo $row['id_company']; ?>">Deactivate</a>
+                    <?php
+                    } else if ($row['active'] == '2') {
+
+                    ?>
+
+                      <a href="approve-company.php?id=<?php echo $row['id_company']; ?>">Approve</a> | <a href="reject-company.php?id=<?php echo $row['id_company']; ?>">Reject</a>
+
                     <?php
                     } else if ($row['active'] == '3') {
                     ?>
+
                       <a href="approve-company.php?id=<?php echo $row['id_company']; ?>">Reactivate</a>
+
                     <?php
-                    } else if ($row['active'] == '0') {
-                      echo "Rejected";
-                    }
+                    } else if ($row['active'] == '0') {  
                     ?>
+                    <a href="approve-company.php?id=<?php echo $row['id_company']; ?>">Approve</a> | 
+                    <?php
+                    echo '<span class="label label-danger">Rejected</span>';
+                  }
+                  ?>
                   </td>
-                  <td><a href="delete-company.php?id=<?php echo $row['id_company']; ?>" class="confirmation">Delete</a></td>
+                 
                 </tr>
             <?php
               }

@@ -17,7 +17,7 @@ include('include/header.php');
       <div class="attachment-block clearfix padding-2">
         <h4 class="attachment-heading"><a href="view-job-post.php?id=<?php echo $row['id_jobpost']; ?>"><?php echo $row['jobtitle']; ?></a></h4>
         <div class="attachment-text padding-2">
-        <div class="pull-left"><i class="fa fa-calendar"></i>&nbsp;&nbsp;<?php echo date("M-d-Y", strtotime($row['dateAp'])); ?></div>
+          <div class="pull-left"><i class="fa fa-calendar"></i>&nbsp;&nbsp;<?php echo date("M-d-Y", strtotime($row['dateAp'])); ?></div>
           <?php
 
           if ($row['status'] == 0) {
@@ -25,7 +25,7 @@ include('include/header.php');
           } else if ($row['status'] == 1) {
             echo '<div class="pull-right"><strong class="text-red">Rejected</strong></div>';
           } else if ($row['status'] == 2) {
-            echo '<div class="pull-right"><strong class="text-green">Under Review</strong></div> ';
+            echo '<div class="pull-right"><strong class="text-green blink">Under Review</strong></div> ';
           }
           ?>
 
@@ -41,7 +41,6 @@ include('include/header.php');
 </div>
 </div>
 </section>
-
 
 
 </div>

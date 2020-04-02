@@ -104,7 +104,7 @@ if (isset($_POST)) {
 			// 	<title>Confirm Your Email</title>
 			// <body>
 			// 	<p>Click Link To Confirm</p>
-			// 	<a href="yourdomain.com/verify.php?token='.$hash.'&email='.$email.'">Verify Email</a>
+			// 	<a href="localhost/jobportal/verify.php?token='.$hash.'&email='.$to.'">Verify Email</a>
 			// </body>
 			// </html>
 			// ';
@@ -112,7 +112,7 @@ if (isset($_POST)) {
 			// $headers[] = 'MIME-VERSION: 1.0';
 			// $headers[] = 'Content-type: text/html; charset=iso-8859-1';
 			// $headers[] = 'To: '.$to;
-			// $headers[] = 'From: hello@yourdomain.com';
+			// $headers[] = 'From: dyci.jobs.noreply@gmail.com';
 			// //you add more headers like Cc, Bcc;
 
 			// $result = mail($to, $subject, $message, implode("\r\n", $headers)); // \r\n will return new line. 

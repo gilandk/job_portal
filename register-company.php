@@ -96,7 +96,7 @@ require_once("db.php");
       <section class="content-header">
         <div class="container">
           <div class="row latest-job margin-top-50 margin-bottom-20 bg-white">
-            <h1 class="text-center margin-bottom-20">CREATE COMPANY PROFILE</h1><br/>
+            <h3 class="text-center margin-bottom-20">CREATE COMPANY PROFILE</h3><br/>
             <form method="post" id="registerCompanies" action="addcompany.php" enctype="multipart/form-data">
               <div class="col-md-12 latest-job ">
                 <div class="form-group">

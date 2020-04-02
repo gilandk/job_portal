@@ -9,15 +9,14 @@ include('include/header.php');
       <div class="box-body table-responsive no-padding">
         <table id="applications" class="table table-hover">
           <thead>
-            <th>Student #</th>
+            <th>Student No.</th>
             <th>Candidate</th>
             <th>Course</th>
-            <th>Skills</th>
             <th>City</th>
             <th>State</th>
-            <th>Download Resume</th>
+            <th>Resume</th>
+            <th>Date Joined</th>
             <th>Status</th>
-            <th>Delete</th>
           </thead>
           <tbody>
 
@@ -28,20 +27,24 @@ include('include/header.php');
             if ($result->num_rows > 0) {
               while ($row = $result->fetch_assoc()) {
 
-                $skills = $row['skills'];
-                $skills = explode(',', $skills);
+              
             ?>
 
+                <?php
+                if ($row['active'] == '2') {
+                  $blink = '<span class="label label-danger blink">New</span>';
+                }
+                else{
+                  $blink = '';
+                }
+
+                ?>
                 <tr>
-                  <td><?php echo $row['sno'] ?></td>
+
+                  <td><?php echo $blink . ' ' . $row['sno'] ?></td>
                   <td><?php echo $row['fname'] ?></td>
                   <td><?php echo $row['qualification']; ?> <?php echo $row['course']; ?></td>
-                  <td>
-                    <?php
-                    foreach ($skills as $value) {
-                      echo ' <span class="label label-success">' . $value . '</span>';
-                    }
-                    ?>
+                  
                   </td>
                   <td><?php echo $row['city']; ?></td>
                   <td><?php echo $row['state']; ?></td>
@@ -50,23 +53,32 @@ include('include/header.php');
                   <?php } else { ?>
                     <td>No Resume Uploaded</td>
                   <?php } ?>
+                  <td><?php echo date("F-d-Y", strtotime($row['joindate'])); ?></td>
                   <td>
                     <?php
                     if ($row['active'] == '1') {
-                      echo "Activated";
+                      echo '<span class="label label-success">Activated</span> | ';
+                    ?>
+                      <a href="deact-candidate.php?id=<?php echo $row['id_user']; ?>">Deactivate</a>
+
+                    <?php
                     } else if ($row['active'] == '2') {
                     ?>
-                      <a href="reject-candidate.php?id=<?php echo $row['id_user']; ?>">Reject</a> <a href="approve-candidate.php?id=<?php echo $row['id_user']; ?>">Approve</a>
+                      <a href="approve-candidate.php?id=<?php echo $row['id_user']; ?>">Approve</a> | <a href="reject-candidate.php?id=<?php echo $row['id_user']; ?>">Reject</a>
                     <?php
                     } else if ($row['active'] == '3') {
                     ?>
                       <a href="approve-candidate.php?id=<?php echo $row['id_user']; ?>">Reactivate</a>
                     <?php
                     } else if ($row['active'] == '0') {
-                      echo "Rejected";
+                    ?>
+                      <a href="approve-candidate.php?id=<?php echo $row['id_user']; ?>">Approve</a> |
+                    <?php
+
+                      echo '<span class="label label-danger">Rejected</span>';
                     }
                     ?>
-                  <td><a href="delete-candidate.php?id=<?php echo $row['id_user']; ?>" class="confirmation">Delete</a></td>
+
                   </td>
                 </tr>
 

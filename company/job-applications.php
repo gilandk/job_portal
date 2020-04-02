@@ -19,7 +19,7 @@ include('include/header.php');
           <?php
 
           if ($row['status'] == 0) {
-            echo '<div class="pull-right"><strong class="text-orange">Pending</strong></div>';
+            echo '<div class="pull-right"><strong class="text-orange blink">Pending</strong></div>';
           } else if ($row['status'] == 1) {
             echo '<div class="pull-right"><strong class="text-red">Rejected</strong></div>';
           } else if ($row['status'] == 2) {

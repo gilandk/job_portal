@@ -15,7 +15,7 @@ require_once("../db.php");
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Job Portal</title>
+  <title>ADMIN</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
@@ -63,7 +63,7 @@ require_once("../db.php");
         <!-- mini logo for sidebar mini 50x50 pixels -->
         <span class="logo-mini"><b>DYCI</b></span>
         <!-- logo for regular state and mobile devices -->
-        <span class="logo-lg"><b>DYCI </b>Job Portal</span>
+        <span class="logo-lg"><b>DYCI </b>ADMIN</span>
       </a>
 
       <!-- Header Navbar: style can be found in header.less -->
@@ -91,8 +91,32 @@ require_once("../db.php");
 
           <li class="active"><a href="dashboard.php"><i class="fa fa-dashboard"></i><span> Dashboard</span></a></li>
           <li class="active"><a href="active-jobs.php"><i class="fa fa-briefcase"></i> <span>Active Jobs</span></a></li>
-          <li><a href="applications.php"><i class="fa fa-address-card-o"></i> <span>Applications</span></a></li>
-          <li><a href="companies.php"><i class="fa fa-building"></i> <span>Companies</span></a></li>
+          <li><a href="applications.php"><i class="fa fa-address-card-o"></i> <span>Applications</span>
+              <?php
+              $sql0 = "SELECT * FROM users WHERE active='2'";
+              $result0 = $conn->query($sql0);
+              $total0 = $result0->num_rows;
+
+              if ($total0 == '0') {
+                echo '';
+              } else {
+                echo '<span class="label label-danger pull-right blink"> ' . $total0 . '</span>';
+              }
+              ?>
+            </a></li>
+          <li><a href="companies.php"><i class="fa fa-building"></i> <span>Companies</span>
+              <?php
+              $sql2 = "SELECT * FROM company WHERE active='2'";
+              $result2 = $conn->query($sql2);
+              $total2 = $result2->num_rows;
+
+              if ($total2 == '0') {
+                echo '';
+              } else {
+                echo '<span class="label label-danger pull-right blink"> ' . $total2 . '</span>';
+              }
+              ?>
+            </a></li>
           <li><a href="contactus.php"><i class="fa fa-inbox" aria-hidden="true"></i> <span>Messages
                 <?php
                 $sql1 = "SELECT * FROM contact_us WHERE status='0'";
@@ -102,12 +126,12 @@ require_once("../db.php");
                 if ($total1 == '0') {
                   echo '';
                 } else {
-                  echo '<span class="label label-danger pull-right"> ' . $total1 . '</span>';
+                  echo '<span class="label label-danger pull-right blink"> ' . $total1 . '</span>';
                 }
                 ?>
 
               </span></a></li>
-
+          <li><a href="settings.php"><i class="fa fa-gear"></i><span>Settings</span></a></li>
           <li><a href="../logout.php"><i class="fa fa-arrow-circle-o-right"></i><span> Logout</span></a></li>
 
         </ul>

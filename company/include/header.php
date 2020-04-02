@@ -240,7 +240,7 @@ require_once("../db.php");
                 if ($total3 == '0') {
                   echo '';
                 } else {
-                  echo '<span class="label label-danger pull-right"> ' . $total3 . '</span>';
+                  echo '<span class="label label-danger pull-right blink"> ' . $total3 . '</span>';
                 }
                 ?>
                 
@@ -263,14 +263,14 @@ require_once("../db.php");
                 if ($notif == '0') {
                   echo '';
                 } else {
-                  echo '<span class="label label-danger pull-right"> ' . $notif . '</span>';
+                  echo '<span class="label label-danger pull-right blink"> ' . $notif . '</span>';
                 }
                 ?>
               </span>
             </a>
             <ul class="treeview-menu">
-              <li><a href="mailbox.php"><i class="fa fa-inbox" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;View Mailbox</a></li>
-              <li><a href="create-mail.php"><i class="fa fa-share"></i>Create Mail</a></li>
+              <li><a href="mailbox.php"><i class="fa fa-inbox" aria-hidden="true"></i> View Mailbox</a></li>
+              <li><a href="create-mail.php"><i class="fa fa-share"></i> Create Mail</a></li>
             </ul>
           </li>
           <li><a href="resume-database.php"><i class="fa fa-users"></i> <span>Resume Database</span></a></li>

@@ -69,6 +69,7 @@ if ($result1->num_rows > 0) {
           <p style="font-size:16px;"><i class="fa fa-calendar"></i>&nbsp;&nbsp;&nbsp;<?php echo date("d-M-Y", strtotime($row['createdat'])); ?></p>
           <p style="font-size:16px;"> <i class="fa fa-telegram" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;<?php echo $row['contactno']; ?></p>
           <br />
+
         </div>
         <h4 style="font-size:16px;"><b>COMPANY SUMMARY</b></h4>
         <?php echo stripcslashes($row['aboutme']); ?><br />

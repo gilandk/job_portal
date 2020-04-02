@@ -66,6 +66,7 @@ if ($result->num_rows > 0) {
   
         <p style="font-size:16px;"> <?php echo date("M-d-Y", strtotime($row['createdat'])); ?> - </strong><?php echo date("M-d-Y", strtotime($row['applyBy'])); ?>
         </p>
+        <br/>
       </div>
     </div>
     <div class="col-md-6">

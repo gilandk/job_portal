@@ -156,7 +156,7 @@ include('include/header.php');
                         <div class="col-md-6">
                           <div class="form-group">
                             <label for="course">Course/Strand</label>
-                            <input disabled="none" type="text" class="form-control input-lg" id="course" name="course" value="<?php echo $row['course']; ?>" placeholder="Nationality">
+                            <input type="text" class="form-control input-lg" id="course" name="course" value="<?php echo $row['course']; ?>" placeholder="Course/Strand">
                           </div>
                         </div>
 

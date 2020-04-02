@@ -93,9 +93,10 @@ require_once("db.php");
         <div class="container">
           <div class="row">
             <div class="col-md-12 latest-job margin-top-50 margin-bottom-20">
-              <h1 class="text-center">Latest Jobs</h1>
+              <h1 class="text-center">Featured Jobs</h1>
+              <br/>
               <div class="input-group input-group-lg">
-                <input type="text" id="searchBar" class="form-control" placeholder="Search job">
+                <input type="text" id="searchBar" class="form-control" placeholder="Search jobs">
                 <span class="input-group-btn">
                   <button id="searchBtn" type="button" class="btn btn-info btn-flat">Go!</button>
                 </span>

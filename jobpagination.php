@@ -34,10 +34,19 @@ if ($result->num_rows > 0) {
           ?>
           <img class="attachment-img" src="uploads/logo/<?php echo $image; ?>" alt="Attachment Image">
           <div class="attachment-pushed">
-            <h4 class="attachment-heading"><a href="view-job-post.php?id=<?php echo $row['id_jobpost']; ?>"><?php echo $row['jobtitle']; ?></a> <span class="attachment-heading pull-right">PHP <?php echo number_format($row['maximumsalary']); ?>/Month</span></h4>
-            <div class="attachment-text">
-              <div><strong><?php echo $row1['companyname']; ?> | <?php echo $row1['city']; ?> | Experience <?php echo $row['experience']; ?> Years</strong></div>
+            <h4 class="attachment-heading"><a href="view-job-post.php?id=<?php echo $row['id_jobpost']; ?>"><?php echo $row['jobtitle']; ?></a></h4>
+
+            <div class="attachment-text" style="margin-top:5px;">
+              <div>
+                <strong>
+                  <?php echo $row1['companyname']; ?> | <?php echo $row1['city']; ?>, <?php echo $row1['state']; ?><br />
+                  Experience <?php echo $row['experience']; ?> Years <br />
+                </strong>
+
+                <span class="attachment-heading pull-right" style="font-size:15px;"><i class="fa fa-calendar-check-o" aria-hidden="true"></i><em><strong> Till: </strong><?php echo date("F-d-Y", strtotime($row['applyBy'])); ?></em>
+              </div>
             </div>
+
           </div>
         </div>
 
