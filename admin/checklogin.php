@@ -14,7 +14,7 @@ if(isset($_POST)) {
 	$password = mysqli_real_escape_string($conn, $_POST['password']);
 
 	//Encrypt Password
-	$password = base64_encode(strrev(md5($password)));
+	//$password = base64_encode(strrev(md5($password)));
 
 	//sql query to check user login
 	$sql = "SELECT * FROM admin WHERE username='$username' AND password='$password'";

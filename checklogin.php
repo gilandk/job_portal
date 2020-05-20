@@ -30,6 +30,7 @@ if (isset($_POST)) {
 				$_SESSION['loginActiveError'] = "Your Account Is Not Active. Check Your Email.";
 				header("Location: login-candidates.php");
 				exit();
+				
 			} else if ($row['active'] == '1') {
 
 				//Set some session variables for easy reference
