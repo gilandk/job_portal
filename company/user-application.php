@@ -20,7 +20,7 @@ if ($result->num_rows == 0) {
       if ($result->num_rows > 0) {
         while ($row = $result->fetch_assoc()) {
       ?>
-         <div class="pull-left" style="margin-left:75px;">
+          <div class="pull-left" style="margin-left:75px;">
             <?php
             if ($row['profile'] > 0) {
               $image = $row['profile'];
@@ -45,7 +45,7 @@ if ($result->num_rows == 0) {
             ?>
             <br />
             <br />
-            <a href="print-resume.php?id=<?php echo $row['id_user'];?>" target="_blank" class="btn btn-primary"><i class="fa fa-arrow-circle-left"></i> Print</a>
+            <a href="print-resume.php?id=<?php echo $row['id_user']; ?>" target="_blank" class="btn btn-primary"><i class="fa fa-arrow-circle-left"></i> Print</a>
           </div>
           <div class="clearfix"></div>
 
@@ -209,11 +209,21 @@ if ($result->num_rows == 0) {
 
           <div>
           </div>
-      <?php
+
+    </div>
+
+    <div class="row justify-content-center">
+      <div class="col-md-6 text-right">
+        <a href="under-review.php?id=<?php echo $row['id_user']; ?>&id_jobpost=<?php echo $_GET['id_jobpost']; ?>" class="btn btn-success">Mark Under Review</a>
+      </div>
+      <div class="col-md-6 text-left">
+        <a href="reject.php?id=<?php echo $row['id_user']; ?>&id_jobpost=<?php echo $_GET['id_jobpost']; ?>" class="btn btn-danger">Reject Application</a>
+      </div>
+    </div>
+<?php
         }
       }
-      ?>
-    </div>
+?>
 
 
   </div>

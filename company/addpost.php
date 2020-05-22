@@ -16,7 +16,7 @@ if (isset($_POST)) {
 
 	// New way using prepared statements. This is safe from SQL INJECTION. Should consider to update to this method when many people are using this method.
 
-	$stmt = $conn->prepare("INSERT INTO job_post(id_company, jobtitle, jobtype, description, requirements, minimumsalary, maximumsalary, experience, position, applyBy) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+	$stmt = $conn->prepare("INSERT INTO job_post(id_company, jobtitle, jobtype, description, minimumsalary, maximumsalary, experience, position, applyBy) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
 
 	$stmt->bind_param("issssssss", $_SESSION['id_company'], $jobtitle, $jobtype, $description, $minimumsalary, $maximumsalary, $experience, $position, $applyBy);
 
